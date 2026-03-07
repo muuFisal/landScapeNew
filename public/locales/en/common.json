@@ -1,0 +1,444 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "gallery": "Gallery",
+    "work": "Work",
+    "services": "Services",
+    "faq": "FAQ",
+    "joinUs": "Join us"
+  },
+  "common": {
+    "startProject": "Start your project",
+    "exploreProjects": "Explore projects",
+    "seeAllProjects": "See all projects",
+    "viewProject": "View project",
+    "bookConsultation": "Book a consultation",
+    "backHome": "Back to home",
+    "backToProjects": "Back to projects",
+    "whatsapp": "Chat on WhatsApp"
+  },
+  "seo": {
+    "home": {
+      "title": "MDO Landscape | Luxury Landscape Company Presentation",
+      "description": "A bilingual React experience inspired by a luxury monochrome landscape presentation with a clean section structure for work, services, and contact."
+    },
+    "projects": {
+      "title": "Projects | MDO Landscape",
+      "description": "Browse curated landscape projects across villas, courtyards, commercial parks, and poolside environments."
+    },
+    "about": {
+      "title": "About | MDO Landscape",
+      "description": "Meet MDO Landscape, a landscape design and build studio focused on elegant outdoor experiences and premium execution."
+    },
+    "contact": {
+      "title": "Contact | MDO Landscape",
+      "description": "Get in touch with MDO Landscape to plan your next landscape design, build, or renovation project."
+    },
+    "terms": {
+      "title": "Terms & Conditions | MDO Landscape",
+      "description": "Read the terms and conditions for using the MDO Landscape website and services."
+    },
+    "privacy": {
+      "title": "Privacy Policy | MDO Landscape",
+      "description": "Read the MDO Landscape privacy policy and how we use contact information submitted through our website."
+    },
+    "gallery": {
+      "title": "Gallery | MDO Landscape",
+      "description": "Explore the MDO Landscape gallery of luxury gardens, poolscapes, courtyards, and outdoor living environments."
+    }
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Luxury landscape company",
+      "title": "most desired outdoor",
+      "description": "A refined landscape presentation for design, build, and renovation, delivered through calm monochrome visuals and premium simplicity."
+    },
+    "services": {
+      "eyebrow": "Bespoke luxury pool landscaping services",
+      "title": "Design, build, and renovation in one quiet premium story.",
+      "description": "We create strong visual connections between landscape and architecture using geometry, contrast, and refined material direction.",
+      "items": [
+        {
+          "title": "Design",
+          "body": "From concept direction to zoning, planting, and material language, the design process is clear, modern, and visually disciplined."
+        },
+        {
+          "title": "Build",
+          "body": "Execution covers hardscape, pools, pergolas, planting, lighting, and site coordination with premium attention to detail."
+        },
+        {
+          "title": "Renovation",
+          "body": "We refresh underperforming outdoor spaces with stronger identity, smarter flow, and a more elevated overall experience."
+        }
+      ]
+    },
+    "metrics": {
+      "items": [
+        {
+          "value": "100+",
+          "label": "luxury pools completed"
+        },
+        {
+          "value": "120+",
+          "label": "landscape projects delivered"
+        },
+        {
+          "value": "10",
+          "label": "maximum active projects at a time"
+        }
+      ]
+    },
+    "projects": {
+      "eyebrow": "Selected work",
+      "title": "A cinematic project presentation built around monochrome elegance",
+      "description": "Featured villas, courtyards, and poolscapes presented with larger imagery, quiet spacing, and minimal supporting copy."
+    },
+    "process": {
+      "eyebrow": "How we help",
+      "title": "A turnkey journey from first conversation to final handover",
+      "description": "The experience stays calm and direct: understand the site, define the language, build with precision, and refine every final detail.",
+      "items": [
+        {
+          "title": "Discovery & vision",
+          "body": "We listen carefully, review the site context, and define the atmosphere, goals, and practical needs of the outdoor space."
+        },
+        {
+          "title": "Concept & detailing",
+          "body": "We translate strategy into visual concepts, material directions, zoning, planting intent, and buildable technical decisions."
+        },
+        {
+          "title": "Build & site delivery",
+          "body": "Execution is coordinated with quality control, clear communication, and a premium finish across hardscape, planting, and lighting."
+        },
+        {
+          "title": "Refresh & long-term value",
+          "body": "For renovation work, we preserve what matters, upgrade what underperforms, and elevate the overall experience without unnecessary waste."
+        }
+      ],
+      "highlights": {
+        "curated": {
+          "title": "Direct communication",
+          "body": "A studio-led process with focused decision-making, fewer layers, and a more personal relationship throughout the project."
+        },
+        "delivery": {
+          "title": "Turnkey solution",
+          "body": "From early concepts through permits, coordination, and construction, the delivery remains cohesive and controlled."
+        },
+        "details": {
+          "title": "No compromise on quality",
+          "body": "Material selection, geometry, lighting, planting, and finishing are treated as one complete luxury experience."
+        }
+      }
+    },
+    "testimonials": {
+      "eyebrow": "Client voice",
+      "title": "What clients remember most is how effortless the result feels",
+      "description": "Beautiful work is important, but trust grows when the process is smooth and the final space truly works."
+    },
+    "faq": {
+      "eyebrow": "Questions answered",
+      "title": "Everything clients usually want to know before starting",
+      "description": "A clear project experience begins with simple, direct answers around scope, delivery, and renovation possibilities."
+    },
+    "cta": {
+      "title": "Let’s shape a landscape that feels elegant from the very first look",
+      "description": "Tell us about your space, your ambition, and how you want people to feel when they arrive."
+    },
+    "gallery": {
+      "eyebrow": "Visual gallery",
+      "title": "A gallery that keeps the image front and center",
+      "description": "Large monochrome imagery, elegant captions, and subtle motion create a presentation led by the work itself."
+    },
+    "work": {
+      "eyebrow": "Selected work",
+      "title": "A visual presentation led by the projects themselves.",
+      "description": "Large imagery, restrained typography, and simple pacing create a premium work showcase that feels calm, focused, and architectural."
+    },
+    "whyChoose": {
+      "eyebrow": "Why choose us?",
+      "title": "A boutique process with fewer distractions and more attention.",
+      "description": "The experience is curated around clarity, communication, and quality. We stay selective so each project receives real focus.",
+      "items": [
+        {
+          "title": "Direct, personalized communication",
+          "body": "Clients work closely with the studio team for a more hands-on experience from first ideas to final delivery."
+        },
+        {
+          "title": "Exclusive, limited-project approach",
+          "body": "A controlled project load allows deeper focus, faster feedback, and a better overall experience."
+        },
+        {
+          "title": "No compromise on quality",
+          "body": "Every finish, proportion, and material decision is reviewed with a luxury standard in mind."
+        },
+        {
+          "title": "A full turnkey solution",
+          "body": "From design concepts to technical coordination and construction, the delivery remains cohesive and carefully managed."
+        }
+      ]
+    },
+    "help": {
+      "eyebrow": "How can we help?",
+      "title": "If you have been inspired by what you have seen, let’s arrange a consultation.",
+      "description": "Tell us about your site, your design goals, and the kind of outdoor experience you want to create.",
+      "button": "Contact us"
+    }
+  },
+  "servicesData": {
+    "design": {
+      "title": "Landscape Design",
+      "body": "Concept development, mood direction, circulation planning, planting strategy, and presentation-ready layouts shaped around your site and lifestyle."
+    },
+    "build": {
+      "title": "Landscape Build",
+      "body": "Turnkey outdoor execution covering hardscape, planting, lighting, water features, pergolas, pools, and precise on-site coordination."
+    },
+    "renovation": {
+      "title": "Landscape Renovation",
+      "body": "Upgrade aging gardens and outdoor areas with smarter flow, stronger materials, fresh planting, and a more premium overall identity."
+    }
+  },
+  "projects": {
+    "eyebrow": "Project library",
+    "title": "A portfolio built for clarity, beauty, and easy exploration",
+    "description": "Filter the work by project type to quickly explore residential landscapes, commercial sites, pool environments, and courtyards.",
+    "filters": [
+      {
+        "key": "all",
+        "label": "All"
+      },
+      {
+        "key": "residential",
+        "label": "Residential"
+      },
+      {
+        "key": "commercial",
+        "label": "Commercial"
+      },
+      {
+        "key": "poolside",
+        "label": "Poolside"
+      },
+      {
+        "key": "courtyard",
+        "label": "Courtyard"
+      }
+    ]
+  },
+  "projectDetails": {
+    "projectFacts": "Project facts",
+    "location": "Location",
+    "area": "Area",
+    "year": "Year",
+    "challenge": "The challenge",
+    "solution": "The solution"
+  },
+  "about": {
+    "eyebrow": "About the studio",
+    "title": "A landscape studio shaped around modern restraint and premium execution",
+    "description": "This React version keeps the visual calm, monochrome elegance, and premium storytelling expected from a luxury landscape and pool studio.",
+    "story": "Our studio approach is rooted in visual simplicity, smart planning, and outdoor experiences that feel natural to live in. Whether a client needs a complete build or a considered renovation, we focus on creating atmosphere, clarity, and long-term value.",
+    "valuesEyebrow": "What shapes the work",
+    "valuesTitle": "Design values that guide every decision",
+    "valuesDescription": "We care about elegance, clarity, and a result that still feels good months and years after handover.",
+    "values": [
+      {
+        "title": "Elegant clarity",
+        "body": "Layouts, materials, and planting are selected to create calm confidence rather than visual noise."
+      },
+      {
+        "title": "Buildable intelligence",
+        "body": "Ideas are developed with execution in mind, so the finished result stays true to the concept."
+      },
+      {
+        "title": "Lasting value",
+        "body": "We design for real life, with practical movement, durable choices, and spaces that age gracefully."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Start the conversation",
+    "title": "Tell us about your site, your style, and your project ambition",
+    "description": "Whether you need a new landscape, a full build package, or a renovation strategy, we’d love to hear about it.",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "formTitle": "Request a consultation",
+    "form": {
+      "name": "Full name",
+      "phone": "Phone number",
+      "email": "Email address",
+      "message": "Project details",
+      "submit": "Send request"
+    }
+  },
+  "terms": {
+    "eyebrow": "Legal",
+    "title": "Terms & Conditions",
+    "description": "Please read these terms and conditions carefully before using our services.",
+    "sections": [
+      {
+        "title": "Introduction",
+        "content": "Welcome to MDO Landscape. By accessing our website and using our services, you agree to comply with and be bound by the following terms and conditions."
+      },
+      {
+        "title": "Scope of Services",
+        "content": "MDO Landscape provides luxury landscape design, build, and renovation services. The specific scope of work for each project will be defined in a separate written agreement."
+      },
+      {
+        "title": "Quotes and Pricing",
+        "content": "All quotes provided are valid for 30 days. Prices are subject to change based on modifications to the project scope or material costs."
+      },
+      {
+        "title": "Project Timelines",
+        "content": "Estimated timelines are provided in good faith but are subject to change due to weather conditions, material availability, or other unforeseen factors."
+      },
+      {
+        "title": "Client Responsibilities",
+        "content": "Clients must provide accurate site information, access to the property, and timely feedback on design proposals to ensure project progress."
+      },
+      {
+        "title": "Payment Terms",
+        "content": "Payment schedules are typically divided into stages: deposit, design phase, mobilization, and progress payments based on milestones."
+      },
+      {
+        "title": "Changes and Revisions",
+        "content": "Any changes to the agreed scope of work must be documented in writing and may result in adjustments to the project timeline and cost."
+      },
+      {
+        "title": "Liability Limitations",
+        "content": "MDO Landscape is not liable for indirect or consequential damages. Our total liability is limited to the value of the specific project agreement."
+      },
+      {
+        "title": "Intellectual Property",
+        "content": "All designs, drawings, and visual materials produced by MDO Landscape remain the intellectual property of the studio unless otherwise agreed in writing."
+      },
+      {
+        "title": "Governing Law",
+        "content": "These terms are governed by the laws of the United Arab Emirates. Any disputes will be subject to the exclusive jurisdiction of the courts in Dubai."
+      },
+      {
+        "title": "Contact Information",
+        "content": "For any questions regarding these terms, please contact us at hello@mdolandscape.com."
+      }
+    ]
+  },
+  "privacy": {
+    "eyebrow": "Legal",
+    "title": "Privacy Policy",
+    "description": "Your privacy is important to us. This policy explains how we collect and use your data.",
+    "sections": [
+      {
+        "title": "Introduction",
+        "content": "MDO Landscape is committed to protecting your personal information and being transparent about how we handle it."
+      },
+      {
+        "title": "Information We Collect",
+        "content": "We collect information you provide through our contact forms, such as your name, email address, phone number, and project details."
+      },
+      {
+        "title": "How We Use Data",
+        "content": "We use your data to respond to inquiries, provide personalized project proposals, and improve our website experience."
+      },
+      {
+        "title": "Cookies & Analytics",
+        "content": "We use cookies to analyze website traffic and user behavior to better understand our audience and optimize our content."
+      },
+      {
+        "title": "Data Sharing Policy",
+        "content": "We do not sell or lease your personal information to third parties. Data is only shared with trusted partners involved in project delivery."
+      },
+      {
+        "title": "Data Security",
+        "content": "We implement industry-standard security measures to protect your data from unauthorized access, alteration, or disclosure."
+      },
+      {
+        "title": "User Rights",
+        "content": "You have the right to access, correct, or request the deletion of your personal data at any time."
+      },
+      {
+        "title": "Third-Party Links",
+        "content": "Our website may contain links to other sites. We are not responsible for the privacy practices of those external websites."
+      },
+      {
+        "title": "Policy Updates",
+        "content": "We may update this policy from time to time. Any changes will be posted on this page with an updated revision date."
+      },
+      {
+        "title": "Contact Us",
+        "content": "If you have questions about our privacy policy, please reach out to us at privacy@mdolandscape.com."
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to the most common questions about our landscape services.",
+    "items": [
+      {
+        "question": "What services do you provide?",
+        "answer": "We provide a complete turnkey solution including luxury landscape design, high-end construction, pool building, outdoor lighting, and garden renovations."
+      },
+      {
+        "question": "Do you handle both design and execution?",
+        "answer": "Yes, we are a design-and-build studio. We take care of every step from the initial concept and technical drawings to final site delivery."
+      },
+      {
+        "question": "Can I request a custom quote?",
+        "answer": "Absolutely. Every project is unique. After an initial consultation and site visit, we provide a detailed, customized proposal based on your specific requirements."
+      },
+      {
+        "question": "How long does a typical project take?",
+        "answer": "Project timelines vary depending on complexity. A design phase usually takes 2-4 weeks, while construction can range from 8 to 16 weeks or more for larger estates."
+      },
+      {
+        "question": "Do you work on renovations?",
+        "answer": "Yes, we specialize in refreshing aging landscapes, upgrading materials, and improving the flow and identity of existing outdoor spaces."
+      },
+      {
+        "question": "Do you provide pool and outdoor design?",
+        "answer": "Yes, luxury pools and water features are a core part of our design language. We ensure they integrate seamlessly with the surrounding landscape and architecture."
+      },
+      {
+        "question": "How can I get started?",
+        "answer": "Simply fill out our contact form or book a consultation via WhatsApp. We'll reach out to discuss your vision and schedule a discovery meeting."
+      }
+    ]
+  },
+  "footer": {
+    "description": "A bilingual React presentation with a luxury monochrome direction, cinematic imagery, and a calm architectural story.",
+    "links": "Quick links",
+    "contact": "Contact"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or may have moved."
+  },
+  "galleryPage": {
+    "eyebrow": "Curated gallery",
+    "title": "Gallery crafted to let the visuals do the talking",
+    "description": "A dedicated collection of signature outdoor scenes, premium planting moments, and refined landscape compositions presented with elegant motion.",
+    "badges": [
+      "Luxury outdoor imagery",
+      "Animated visual storytelling",
+      "Clean bilingual presentation"
+    ],
+    "grid": {
+      "eyebrow": "Visual library",
+      "title": "Curated scenes with clean titles and immersive presentation",
+      "description": "Every image is presented to feel premium, spacious, and easy to browse on desktop, tablet, and mobile."
+    },
+    "cta": {
+      "eyebrow": "Start your project",
+      "title": "Want a landscape story that looks this polished in real life?",
+      "description": "Let’s turn your outdoor space into a premium experience designed with clarity, built with detail, and finished with lasting elegance.",
+      "primary": "Request a consultation",
+      "secondary": "View projects"
+    }
+  }
+}

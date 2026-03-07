@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Cormorant Garamond';
+  --font-body: 'Inter';
+  --radius-sm: 14px;
+  --radius-md: 22px;
+  --radius-lg: 32px;
+  --radius-xl: 40px;
+  --radius-pill: 999px;
+  --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.14);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+html.light {
+  --color-surface-base: var(--color-surface-light-base);
+  --color-surface-muted: var(--color-surface-light-muted);
+  --color-surface-strong: var(--color-surface-light-strong);
+  --color-ink-50: var(--color-ink-light-50);
+  --color-ink-100: var(--color-ink-light-100);
+  --color-ink-300: var(--color-ink-light-300);
+  --color-ink-400: var(--color-ink-light-400);
+  --color-ink-500: var(--color-ink-light-500);
+  --color-ink-600: var(--color-ink-light-600);
+  --color-ink-700: var(--color-ink-light-700);
+  --color-ink-900: var(--color-ink-light-900);
+  --color-ink-950: var(--color-ink-light-950);
+}
+
+html.dark {
+  --color-surface-base: var(--color-surface-dark-base);
+  --color-surface-muted: var(--color-surface-dark-muted);
+  --color-surface-strong: var(--color-surface-dark-strong);
+  --color-ink-50: var(--color-ink-dark-50);
+  --color-ink-100: var(--color-ink-dark-100);
+  --color-ink-300: var(--color-ink-dark-300);
+  --color-ink-400: var(--color-ink-dark-400);
+  --color-ink-500: var(--color-ink-dark-500);
+  --color-ink-600: var(--color-ink-dark-600);
+  --color-ink-700: var(--color-ink-dark-700);
+  --color-ink-900: var(--color-ink-dark-900);
+  --color-ink-950: var(--color-ink-dark-950);
+}
+
+body {
+  @apply bg-surface-base font-body text-ink-900 antialiased transition-colors duration-300;
+  overflow-x: hidden;
+}
+
+::selection {
+  @apply bg-brand-900/15 text-ink-900;
+}
+
+.container-shell {
+  @apply mx-auto w-full max-w-content px-4 sm:px-6 lg:px-8;
+}
+
+.section-space {
+  @apply py-16 sm:py-20 lg:py-24;
+}
+
+.surface-card {
+  @apply rounded-[var(--radius-lg)] border border-black/10 bg-surface-strong shadow-soft dark:border-white/10;
+}
+
+.hero-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.52) 100%);
+}
+
+.soft-border {
+  @apply border border-black/10 dark:border-white/10;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.mesh-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.snap-x-mandatory {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-start-item {
+  scroll-snap-align: start;
+}
