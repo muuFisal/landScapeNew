@@ -28,7 +28,7 @@ export function WorkShowcaseSection({ projects, locale }: { projects: Project[];
             transition={{ duration: 0.7 }}
             className="group lg:col-span-7"
           >
-            <a href={`/projects/${projects[0].slug}`} className="block overflow-hidden rounded-[30px] bg-black text-white">
+            <a href={`/projects/${projects[0].slug}`} className="block overflow-hidden rounded-lg bg-black text-white">
               <div className="overflow-hidden">
                 <img src={projects[0].cover} alt={projects[0].title[locale]} className="h-[26rem] w-full object-cover grayscale transition duration-700 group-hover:scale-[1.04]" />
               </div>
@@ -50,7 +50,7 @@ export function WorkShowcaseSection({ projects, locale }: { projects: Project[];
                 transition={{ duration: 0.7, delay: index * 0.08 }}
                 className="group"
               >
-                <a href={`/projects/${project.slug}`} className="block overflow-hidden rounded-[28px] border border-black/10 bg-white dark:border-white/10 dark:bg-white/[0.02]">
+                <a href={`/projects/${project.slug}`} className="block overflow-hidden rounded-lg border border-black/10 bg-surface-strong dark:border-white/10">
                   <div className="overflow-hidden">
                     <img src={project.cover} alt={project.title[locale]} className="h-72 w-full object-cover grayscale transition duration-700 group-hover:scale-[1.04]" />
                   </div>

@@ -29,7 +29,7 @@ export function ScrollToTopButton() {
     <button
       onClick={scrollToTop}
       className={cn(
-        'fixed bottom-5 left-5 z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-brand-900 text-white shadow-card transition-all duration-500 hover:scale-110 active:scale-95',
+        'fixed bottom-5 left-5 z-[60] flex h-12 w-12 items-center justify-center rounded-full bg-brand-900 text-white shadow-card transition-all duration-700 hover:scale-110 active:scale-95',
         'border border-white/10 backdrop-blur-md',
         'dark:bg-surface-strong dark:text-white',
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'

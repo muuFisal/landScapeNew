@@ -32,7 +32,7 @@ export function WhyChooseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.65, delay: index * 0.06 }}
-              className="rounded-[28px] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm"
+              className="rounded-lg border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm"
             >
               <p className="text-[11px] uppercase tracking-[0.3em] text-white/34">0{index + 1}</p>
               <h3 className="mt-4 font-display text-2xl font-semibold sm:text-[1.9rem]">{reason.title}</h3>

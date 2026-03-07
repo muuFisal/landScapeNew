@@ -66,9 +66,9 @@ export function Navbar() {
   const showBackground = isScrolled || !isHeroPage;
 
   const headerStyles = cn(
-    'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-    showBackground 
-      ? 'border-b border-black/5 bg-surface-base/80 py-2 backdrop-blur-xl shadow-soft dark:border-white/10' 
+    'fixed top-0 left-0 right-0 z-50 transition-all duration-700',
+    showBackground
+      ? 'border-b border-black/5 bg-surface-base/80 py-2 backdrop-blur-xl shadow-soft dark:border-white/10'
       : 'border-b border-transparent bg-transparent py-4'
   );
 
@@ -81,8 +81,8 @@ export function Navbar() {
   return (
     <header className={headerStyles}>
       <div ref={menuRef} className="relative">
-        <div className="container-shell flex h-16 items-center justify-between gap-4 transition-all duration-500">
-          <Link to="/" className={cn('text-[1.8rem] font-extrabold tracking-[0.2em] transition-all sm:text-[2.2rem]', textClass)}>
+        <div className="container-shell flex h-16 items-center justify-between gap-4 transition-all duration-700">
+          <Link to="/" className={cn('font-display text-[1.8rem] font-semibold tracking-[0.2em] transition-all sm:text-[2.2rem]', textClass)}>
             MDO
           </Link>
 
@@ -121,7 +121,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-3 lg:hidden">
             <ThemeToggle className={showBackground ? '' : 'border-white/20 bg-white/10 text-white hover:bg-white/20'} />
-            
+
             <button
               className={cn(
                 'rounded-full border p-2.5 transition active:scale-95',
@@ -136,7 +136,7 @@ export function Navbar() {
         </div>
 
         <div className={cn(
-          'overflow-hidden border-t transition-all duration-500 lg:hidden', 
+          'overflow-hidden border-t transition-all duration-700 lg:hidden',
           showBackground ? 'border-black/5 bg-surface-base' : 'border-white/10 bg-black/95',
           open ? 'max-h-[35rem] opacity-100' : 'max-h-0 opacity-0'
         )}>
@@ -159,10 +159,10 @@ export function Navbar() {
                   {link.label}
                 </NavLink>
               ) : (
-                <a 
-                  key={link.label} 
-                  href={link.href} 
-                  onClick={() => setOpen(false)} 
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
                   className={cn('text-base font-medium', showBackground ? 'text-ink-700' : 'text-white/80')}
                 >
                   {link.label}
@@ -170,8 +170,8 @@ export function Navbar() {
               ),
             )}
             <div className="mt-4 flex flex-col gap-4">
-              <button 
-                onClick={toggleLanguage} 
+              <button
+                onClick={toggleLanguage}
                 className={cn(
                   'inline-flex w-fit items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold tracking-wider transition',
                   showBackground ? 'border-black/10 text-ink-900' : 'border-white/15 text-white'

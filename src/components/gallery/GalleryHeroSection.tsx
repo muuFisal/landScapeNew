@@ -8,7 +8,7 @@ export function GalleryHeroSection() {
   return (
     <AnimatedSection className="section-space pb-10" animation="down">
       <div className="container-shell">
-        <div className="relative overflow-hidden rounded-[36px] border border-black/5 bg-surface-strong px-6 py-10 shadow-soft dark:border-white/10 sm:px-8 lg:px-12 lg:py-16">
+        <div className="relative overflow-hidden rounded-xl border border-black/5 bg-surface-strong px-6 py-10 shadow-soft dark:border-white/10 sm:px-8 lg:px-12 lg:py-16">
           <div className="absolute inset-0 opacity-20">
             <img
               src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=80"

@@ -14,7 +14,7 @@ export function FAQItem({ question, answer }: { question: string; answer: string
         <span className="text-lg font-semibold text-ink-900">{question}</span>
         <ChevronDown className={cn('h-5 w-5 shrink-0 transition', open && 'rotate-180')} />
       </button>
-      <div className={cn('grid transition-all duration-300', open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]')}>
+      <div className={cn('grid transition-all duration-500', open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]')}>
         <div className="overflow-hidden px-5 pb-5 text-sm leading-7 text-ink-500 sm:px-6 sm:pb-6">{answer}</div>
       </div>
     </article>

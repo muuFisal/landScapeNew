@@ -30,7 +30,7 @@ export function GalleryPage() {
           <AnimatedSection animation="scale">
             <div className="max-w-4xl">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-white/60">MDO Landscape</p>
-              <h1 className="mt-5 text-4xl font-extrabold uppercase leading-[0.9] sm:text-6xl lg:text-[7.5rem]">
+              <h1 className="mt-5 text-4xl font-semibold uppercase leading-[0.9] sm:text-6xl lg:text-[7.5rem]">
                 {locale === 'ar' ? 'الجالري' : 'Gallery'}
               </h1>
               <p className="mt-8 max-w-2xl text-base leading-8 text-white/82 sm:text-lg">
@@ -47,7 +47,7 @@ export function GalleryPage() {
         <div className="container-shell grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {galleryItems.map((item, index) => (
             <AnimatedSection key={`${item.title.en}-${index}`} animation={index % 3 === 0 ? 'left' : index % 3 === 1 ? 'up' : 'right'}>
-              <figure className="group overflow-hidden rounded-[12px] bg-white shadow-[0_12px_35px_rgba(0,0,0,0.08)]">
+              <figure className="group overflow-hidden rounded-sm bg-surface-base shadow-soft">
                 <div className="overflow-hidden">
                   <img src={item.image} alt={item.title[locale]} className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-[1.05]" />
                 </div>

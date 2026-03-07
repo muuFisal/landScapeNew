@@ -16,7 +16,7 @@ export function LegalPage({ type }: { type: 'terms' | 'privacy' }) {
             <div className="space-y-10">
               {(t(`${prefix}.sections`, { returnObjects: true }) as { title: string; content: string }[]).map((section, index) => (
                 <div key={index} className="space-y-4">
-                  <h3 className="text-xl font-bold uppercase tracking-tight text-ink-900">{section.title}</h3>
+                  <h3 className="text-xl font-semibold uppercase tracking-tight text-ink-900">{section.title}</h3>
                   <p className="text-base leading-8 text-ink-600">{section.content}</p>
                 </div>
               ))}

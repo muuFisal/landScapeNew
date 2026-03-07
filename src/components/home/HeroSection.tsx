@@ -58,7 +58,7 @@ export function HeroSection({ metrics }: { metrics: Metric[] }) {
           className="grid gap-4 border-t border-white/12 pt-6 sm:grid-cols-3 sm:pt-8"
         >
           {metrics.map((metric, index) => (
-            <div key={metric.label} className="rounded-[22px] border border-white/12 bg-white/[0.04] p-5 backdrop-blur-sm">
+            <div key={metric.label} className="rounded-md border border-white/12 bg-white/[0.04] p-5 backdrop-blur-sm">
               <div className="font-display text-3xl font-semibold sm:text-[2.4rem]">{metric.value}</div>
               <p className="mt-2 text-sm leading-6 text-white/65">{metric.label}</p>
               <div className="mt-4 h-px w-full bg-white/10" />

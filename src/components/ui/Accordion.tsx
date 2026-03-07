@@ -20,7 +20,7 @@ function AccordionItem({ question, answer, isOpen, onClick }: AccordionItemProps
         <span className="text-lg font-bold uppercase tracking-tight text-ink-900 sm:text-xl">{question}</span>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.5 }}
           className="ml-4 shrink-0"
         >
           <ChevronDown className="h-5 w-5 text-ink-400" />
@@ -32,7 +32,7 @@ function AccordionItem({ question, answer, isOpen, onClick }: AccordionItemProps
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
             className="overflow-hidden"
           >
             <div className="pb-6 text-base leading-8 text-ink-600">

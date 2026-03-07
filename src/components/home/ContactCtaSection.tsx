@@ -14,7 +14,7 @@ export function ContactCtaSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.8 }}
-          className="overflow-hidden rounded-[40px] bg-ink-900 px-6 py-12 text-surface-base sm:px-10 sm:py-16 lg:px-16 lg:py-20 shadow-soft transition-colors duration-500"
+          className="overflow-hidden rounded-xl bg-ink-900 px-6 py-12 text-surface-base sm:px-10 sm:py-16 lg:px-16 lg:py-20 shadow-soft transition-colors duration-700"
         >
           <p className="text-[11px] font-bold uppercase tracking-[0.4em] text-surface-base/50">{t('home.help.eyebrow')}</p>
           <h2 className="mt-6 max-w-4xl font-display text-4xl font-semibold leading-tight sm:text-5xl lg:text-[4rem]">

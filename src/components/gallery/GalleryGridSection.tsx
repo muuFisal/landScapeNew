@@ -45,9 +45,9 @@ export function GalleryGridSection({ locale }: { locale: 'en' | 'ar' }) {
                   whileInView={{ opacity: 1, y: 0, x: 0, scale: 1, filter: 'blur(0px)' }}
                   viewport={{ once: true, amount: 0.18 }}
                   transition={{ duration: 0.8, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-                  className="group relative mb-5 break-inside-avoid overflow-hidden rounded-[28px] border border-black/5 bg-surface-strong p-3 shadow-soft dark:border-white/10"
+                  className="group relative mb-5 break-inside-avoid overflow-hidden rounded-lg border border-black/5 bg-surface-strong p-3 shadow-soft dark:border-white/10"
                 >
-                  <button type="button" className="relative block w-full overflow-hidden rounded-[22px] text-start" onClick={() => setActiveIndex(index)}>
+                  <button type="button" className="relative block w-full overflow-hidden rounded-md text-start" onClick={() => setActiveIndex(index)}>
                     <img
                       src={item.image}
                       alt={item.title[locale]}
@@ -77,7 +77,7 @@ export function GalleryGridSection({ locale }: { locale: 'en' | 'ar' }) {
             >
               <X className="h-5 w-5" />
             </button>
-            <div className="overflow-hidden rounded-[28px] border border-white/10 bg-black/40 shadow-card">
+            <div className="overflow-hidden rounded-lg border border-white/10 bg-black/40 shadow-card">
               <img src={activeItem.image} alt={activeItem.title[locale]} className="max-h-[78vh] w-full object-cover" />
               <div className="border-t border-white/10 bg-black/40 px-6 py-5 text-white">
                 <h3 className="font-display text-3xl font-semibold">{activeItem.title[locale]}</h3>

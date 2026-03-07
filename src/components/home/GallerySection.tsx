@@ -20,9 +20,9 @@ export function GallerySection({ locale }: { locale: 'en' | 'ar' }) {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.65, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                className="group snap-start-item min-w-[78%] flex-none overflow-hidden rounded-[30px] border border-black/5 bg-surface-strong p-3 shadow-soft dark:border-white/10 sm:min-w-[44%] lg:min-w-0"
+                className="group snap-start-item min-w-[78%] flex-none overflow-hidden rounded-lg border border-black/5 bg-surface-strong p-3 shadow-soft dark:border-white/10 sm:min-w-[44%] lg:min-w-0"
               >
-                <div className="overflow-hidden rounded-[22px]">
+                <div className="overflow-hidden rounded-md">
                   <img
                     src={item.image}
                     alt={item.title[locale]}

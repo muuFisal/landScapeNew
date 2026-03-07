@@ -22,7 +22,7 @@ export function ProcessSection({ process }: { process: ProcessStep[] }) {
           <SectionHeading inverse eyebrow={t('home.process.eyebrow')} title={t('home.process.title')} description={t('home.process.description')} />
           <div className="grid gap-4">
             {highlights.map((item) => (
-              <div key={item.title} className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-md dark:border-black/5 dark:bg-surface-muted">
+              <div key={item.title} className="rounded-lg border border-white/10 bg-white/5 p-5 backdrop-blur-md dark:border-black/5 dark:bg-surface-muted">
                 <item.icon className="mb-3 h-6 w-6 text-accent-400 dark:text-brand-500" />
                 <h3 className="text-lg font-semibold">{item.title}</h3>
                 <p className="mt-2 text-sm leading-7 text-white/75 dark:text-ink-500">{item.body}</p>
@@ -32,7 +32,7 @@ export function ProcessSection({ process }: { process: ProcessStep[] }) {
         </div>
         <div className="grid gap-4">
           {process.map((step, index) => (
-            <div key={step.title} className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-md dark:border-black/5 dark:bg-surface-muted">
+            <div key={step.title} className="rounded-lg border border-white/10 bg-white/5 p-6 backdrop-blur-md dark:border-black/5 dark:bg-surface-muted">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-300 text-sm font-semibold text-brand-900 dark:bg-brand-100 dark:text-brand-700">{index + 1}</div>
               <h3 className="font-display text-3xl font-semibold">{step.title}</h3>
               <p className="mt-3 text-sm leading-7 text-white/75 dark:text-ink-500">{step.body}</p>

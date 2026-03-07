@@ -21,7 +21,7 @@ export function ContactPage() {
                 { icon: MapPin, title: t('contact.location'), body: 'Dubai · Abu Dhabi · Riyadh' },
               ].map((item) => (
                 <div key={item.title} className="surface-card flex items-start gap-4 p-5">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-700 dark:bg-white/5 dark:text-brand-500">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-700 dark:bg-white/5 dark:text-brand-500">
                     <item.icon className="h-5 w-5" />
                   </div>
                   <div>
@@ -42,12 +42,12 @@ export function ContactPage() {
               ].map((field) => (
                 <label key={field.label} className="grid gap-2 text-sm font-medium text-ink-700">
                   {field.label}
-                  <input type={field.type} className="rounded-2xl border border-black/5 bg-surface-base px-4 py-3 outline-none transition focus:border-brand-400 dark:border-white/10" />
+                  <input type={field.type} className="rounded-md border border-black/5 bg-surface-base px-4 py-3 outline-none transition focus:border-brand-400 dark:border-white/10" />
                 </label>
               ))}
               <label className="grid gap-2 text-sm font-medium text-ink-700">
                 {t('contact.form.message')}
-                <textarea rows={5} className="rounded-2xl border border-black/5 bg-surface-base px-4 py-3 outline-none transition focus:border-brand-400 dark:border-white/10" />
+                <textarea rows={5} className="rounded-md border border-black/5 bg-surface-base px-4 py-3 outline-none transition focus:border-brand-400 dark:border-white/10" />
               </label>
               <button type="button" className="mt-2 inline-flex w-fit items-center justify-center rounded-full bg-brand-700 px-5 py-3 text-sm font-semibold text-white shadow-card transition hover:bg-brand-800">
                 {t('contact.form.submit')}

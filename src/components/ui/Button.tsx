@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes } from 'react';
 import { Link, type LinkProps } from 'react-router-dom';
 import { cn } from '@/utils/cn';
 
-const base = 'inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-300';
+const base = 'inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition duration-500';
 
 export function ButtonLink({ className, ...props }: LinkProps & { className?: string }) {
   const hasTextColor = className?.includes('text-');

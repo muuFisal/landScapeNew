@@ -38,7 +38,7 @@ export function ProjectDetailsPage() {
           </div>
           <h1 className="max-w-4xl font-display text-5xl font-semibold text-balance text-ink-900 sm:text-6xl">{project.title[locale]}</h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-ink-500">{project.summary[locale]}</p>
-          <div className="mt-10 overflow-hidden rounded-[36px]">
+          <div className="mt-10 overflow-hidden rounded-xl">
             <img src={project.cover} alt={project.title[locale]} className="h-[420px] w-full object-cover sm:h-[560px]" />
           </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
@@ -68,7 +68,7 @@ export function ProjectDetailsPage() {
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {project.gallery.map((image) => (
-              <div key={image} className="overflow-hidden rounded-[28px]">
+              <div key={image} className="overflow-hidden rounded-lg">
                 <img src={image} alt={project.title[locale]} className="h-72 w-full object-cover" />
               </div>
             ))}

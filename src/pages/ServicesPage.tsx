@@ -32,7 +32,7 @@ export function ServicesPage() {
           <AnimatedSection animation="down">
             <div className="max-w-4xl">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-white/60">MDO Landscape</p>
-              <h1 className="mt-5 text-4xl font-extrabold uppercase leading-[0.9] sm:text-6xl lg:text-[7.5rem]">
+              <h1 className="mt-5 text-4xl font-semibold uppercase leading-[0.9] sm:text-6xl lg:text-[7.5rem]">
                 {locale === 'ar' ? 'خدماتنا' : 'Our Services'}
               </h1>
               <p className="mt-8 max-w-2xl text-base leading-8 text-white/82 sm:text-lg">
@@ -50,7 +50,7 @@ export function ServicesPage() {
           {services.map((service, index) => (
             <div key={service.slug} className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
               <AnimatedSection animation={index % 2 === 0 ? 'left' : 'right'} className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                <div className="overflow-hidden rounded-[10px] bg-black/5">
+                <div className="overflow-hidden rounded-sm bg-black/5">
                   <img src={service.image} alt={service.title[locale]} className="aspect-[4/3] w-full object-cover transition duration-700 hover:scale-[1.04]" />
                 </div>
               </AnimatedSection>
@@ -58,7 +58,7 @@ export function ServicesPage() {
               <AnimatedSection animation={index % 2 === 0 ? 'right' : 'left'} className={index % 2 === 1 ? 'lg:order-1' : ''}>
                 <div>
                   <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-ink-500">0{index + 1}</p>
-                  <h2 className="text-4xl font-extrabold uppercase leading-tight text-ink-900 sm:text-5xl">{service.title[locale]}</h2>
+                  <h2 className="text-4xl font-semibold uppercase leading-tight text-ink-900 sm:text-5xl">{service.title[locale]}</h2>
                   <p className="mt-5 text-lg leading-8 text-ink-700">{service.short[locale]}</p>
                   <p className="mt-5 text-base leading-8 text-ink-700">{service.description[locale]}</p>
                   <Link

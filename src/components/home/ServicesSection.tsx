@@ -49,7 +49,7 @@ export function ServicesSection() {
           className="grid gap-5 sm:grid-cols-2"
         >
           {images.map((image, index) => (
-            <div key={image} className="overflow-hidden rounded-[30px] bg-black">
+            <div key={image} className="overflow-hidden rounded-lg bg-black">
               <img
                 src={image}
                 alt={index === 0 ? 'Landscape geometry' : 'Garden materiality'}

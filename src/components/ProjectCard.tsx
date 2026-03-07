@@ -4,7 +4,7 @@ import type { Project } from '@/data/projects';
 
 export function ProjectCard({ project, locale, cta }: { project: Project; locale: 'en' | 'ar'; cta: string }) {
   return (
-    <article className="group h-full overflow-hidden bg-surface-strong transition duration-300 hover:-translate-y-1">
+    <article className="group h-full overflow-hidden surface-card transition duration-300 hover:-translate-y-1">
       <div className="overflow-hidden bg-black/5">
         <img
           src={project.cover}
@@ -19,7 +19,7 @@ export function ProjectCard({ project, locale, cta }: { project: Project; locale
           <span>•</span>
           <span>{project.year}</span>
         </div>
-        <h3 className="mt-4 text-[1.65rem] font-extrabold uppercase leading-tight text-ink-900">{project.title[locale]}</h3>
+        <h3 className="mt-4 text-[1.65rem] font-semibold uppercase leading-tight text-ink-900">{project.title[locale]}</h3>
         <p className="mt-3 text-sm leading-7 text-ink-500">{project.excerpt[locale]}</p>
         <Link to={`/projects/${project.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-ink-900 transition hover:gap-3">
           {cta}

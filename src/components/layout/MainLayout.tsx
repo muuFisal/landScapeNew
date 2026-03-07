@@ -10,7 +10,7 @@ export function MainLayout({ children }: { children: ReactNode }) {
   const { t } = useTranslation();
 
   return (
-    <div className="flex min-h-screen flex-col bg-surface-base font-body text-ink-900 transition-colors duration-300">
+    <div className="flex min-h-screen flex-col bg-surface-base font-body text-ink-900 transition-colors duration-700">
       <ScrollToTopOnRouteChange />
       <Navbar />
       <main className="flex-grow">{children}</main>

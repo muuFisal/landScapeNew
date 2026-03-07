@@ -8,7 +8,7 @@ export function GalleryCtaSection() {
   return (
     <AnimatedSection className="section-space pt-8" animation="up">
       <div className="container-shell">
-        <div className="overflow-hidden rounded-[36px] border border-black/5 bg-surface-muted px-6 py-10 dark:border-white/10 sm:px-8 lg:px-12 lg:py-14">
+        <div className="overflow-hidden rounded-xl border border-black/5 bg-surface-muted px-6 py-10 dark:border-white/10 sm:px-8 lg:px-12 lg:py-14">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-brand-700 dark:text-brand-500">

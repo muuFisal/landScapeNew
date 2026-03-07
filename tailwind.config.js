@@ -42,8 +42,15 @@ export default {
         }
       },
       boxShadow: {
-        soft: '0 12px 45px rgba(15, 23, 42, 0.08)',
-        card: '0 20px 60px rgba(11, 18, 32, 0.12)'
+        soft: 'var(--shadow-soft)',
+        card: 'var(--shadow-card)'
+      },
+      borderRadius: {
+        sm: 'var(--radius-sm)',
+        md: 'var(--radius-md)',
+        lg: 'var(--radius-lg)',
+        xl: 'var(--radius-xl)',
+        pill: 'var(--radius-pill)',
       },
       fontFamily: {
         display: ['var(--font-display)', 'serif'],

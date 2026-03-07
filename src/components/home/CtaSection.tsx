@@ -9,7 +9,7 @@ export function CtaSection() {
   return (
     <AnimatedSection className="section-space" animation="right">
       <div className="container-shell">
-        <div className="overflow-hidden rounded-[36px] bg-brand-900 px-6 py-10 text-white shadow-card sm:px-10 lg:grid lg:grid-cols-[1fr_auto] lg:items-center dark:bg-surface-strong dark:text-ink-900">
+        <div className="overflow-hidden rounded-xl bg-brand-900 px-6 py-10 text-white shadow-card sm:px-10 lg:grid lg:grid-cols-[1fr_auto] lg:items-center dark:bg-surface-strong dark:text-ink-900">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/60">MDO Landscape Studio</p>
             <h2 className="mt-3 font-display text-4xl font-semibold sm:text-5xl">{t('home.cta.title')}</h2>

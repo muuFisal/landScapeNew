@@ -28,7 +28,7 @@ export function MetricsShowcaseSection({ metrics }: { metrics: Metric[] }) {
           </div>
         </div>
         <div className="grid gap-5">
-          <div className="overflow-hidden rounded-[32px]">
+          <div className="overflow-hidden rounded-lg">
             <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80" alt="Luxury landscape detail" className="h-[420px] w-full object-cover grayscale" />
           </div>
           <div className="grid gap-5 md:grid-cols-3">
