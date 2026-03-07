@@ -34,7 +34,7 @@ export function AboutPage() {
         <div className="container-shell grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="overflow-hidden rounded-xl">
             <img
-              src="https://images.unsplash.com/photo-1558905648-281944ecb3f7?auto=format&fit=crop&w=1400&q=80"
+              src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1400&q=80"
               alt="Our Mission"
               className="aspect-[4/5] w-full object-cover sm:aspect-video lg:aspect-[4/5]"
             />
