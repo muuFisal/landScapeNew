@@ -55,8 +55,14 @@ export const themeTokens = {
     },
   },
   fonts: {
-    display: 'Cormorant Garamond',
-    body: 'Inter',
+    display: {
+      en: 'Playfair Display',
+      ar: 'IBM Plex Sans Arabic',
+    },
+    body: {
+      en: 'Manrope',
+      ar: 'IBM Plex Sans Arabic',
+    },
   },
   radii: {
     sm: '14px',
@@ -75,8 +81,12 @@ export function applyThemeTokens() {
   if (typeof document === 'undefined') return;
 
   const root = document.documentElement;
-  root.style.setProperty('--font-display', themeTokens.fonts.display);
-  root.style.setProperty('--font-body', themeTokens.fonts.body);
+  root.style.setProperty('--font-display-en', themeTokens.fonts.display.en);
+  root.style.setProperty('--font-display-ar', themeTokens.fonts.display.ar);
+  root.style.setProperty('--font-body-en', themeTokens.fonts.body.en);
+  root.style.setProperty('--font-body-ar', themeTokens.fonts.body.ar);
+  root.style.setProperty('--font-display', themeTokens.fonts.display.en);
+  root.style.setProperty('--font-body', themeTokens.fonts.body.en);
   root.style.setProperty('--radius-sm', themeTokens.radii.sm);
   root.style.setProperty('--radius-md', themeTokens.radii.md);
   root.style.setProperty('--radius-lg', themeTokens.radii.lg);

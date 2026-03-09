@@ -1,72 +1,77 @@
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { ButtonLink } from '@/components/ui/Button';
+import { cn } from '@/utils/cn';
 
-type Metric = { value: string; label: string };
-
-export function HeroSection({ metrics }: { metrics: Metric[] }) {
-  const { t } = useTranslation();
+export function HeroSection() {
+  const { t, i18n } = useTranslation();
+  const isArabic = i18n.language === 'ar';
 
   return (
-    <section className="relative isolate min-h-[100svh] overflow-hidden border-b border-black/10 bg-black text-white dark:border-white/10">
-      <div className="absolute inset-0 -z-20 overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2200&q=80"
-          alt="Luxury landscape background"
-          loading="eager"
-          className="h-full w-full object-cover grayscale"
-        />
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_40%)]" />
+    <section className="relative isolate min-h-screen overflow-hidden bg-black text-white">
+      <img
+        src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1800&q=80"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="hero-overlay absolute inset-0 bg-black/45" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_38%)]" />
 
-      <div className="container-shell relative flex min-h-[100svh] flex-col justify-between gap-10 pb-8 pt-28 sm:pb-10 sm:pt-32 lg:pb-12 lg:pt-36">
+      <div className="container-shell relative flex min-h-screen items-end justify-center pb-24 text-center sm:pb-28 lg:pb-32">
         <motion.div
-          initial={{ opacity: 0, y: 36 }}
+          initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85 }}
-          className="max-w-4xl"
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full"
         >
-          <p className="text-[11px] font-medium uppercase tracking-[0.42em] text-white/58 sm:text-xs">
-            {t('home.hero.eyebrow')}
-          </p>
-          <h1 className="mt-6 max-w-5xl font-display text-5xl font-semibold leading-[0.88] text-white sm:text-6xl lg:text-7xl xl:text-[6rem]">
+          <h1
+            className={cn(
+              'mx-auto max-w-5xl text-center text-5xl font-semibold leading-[0.95] text-balance text-white sm:text-7xl lg:text-[7.5rem]',
+              !isArabic && 'uppercase'
+            )}
+          >
             {t('home.hero.title')}
           </h1>
-          <p className="mt-6 max-w-2xl text-sm leading-7 text-white/74 sm:text-base sm:leading-8 lg:text-lg">
-            {t('home.hero.description')}
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink to="/contact" className="bg-white text-black hover:bg-white/90">
-              {t('common.startProject')}
-              <ArrowRight className="h-4 w-4" />
-            </ButtonLink>
-            <a
-              href="#work-grid"
-              className="inline-flex items-center justify-center rounded-full border border-white/18 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              {t('common.exploreProjects')}
-            </a>
-          </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, delay: 0.15 }}
-          className="grid gap-4 border-t border-white/12 pt-6 sm:grid-cols-3 sm:pt-8"
-        >
-          {metrics.map((metric, index) => (
-            <div key={metric.label} className="rounded-md border border-white/12 bg-white/[0.04] p-5 backdrop-blur-sm">
-              <div className="font-display text-3xl font-semibold sm:text-[2.4rem]">{metric.value}</div>
-              <p className="mt-2 text-sm leading-6 text-white/65">{metric.label}</p>
-              <div className="mt-4 h-px w-full bg-white/10" />
-              <p className="mt-3 text-[11px] uppercase tracking-[0.3em] text-white/36">
-                0{index + 1}
-              </p>
+          <div className="mt-8 flex justify-center sm:mt-10">
+            <div
+              aria-label={t('home.hero.serviceHierarchy.ariaLabel')}
+              className="inline-flex w-full max-w-[32rem] flex-col items-center gap-4 rounded-[2rem] border border-white/12 bg-black/20 px-5 py-4 shadow-card backdrop-blur-md sm:px-8 sm:py-5"
+            >
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
+                <span
+                  className={cn(
+                    'font-display text-[1.25rem] font-semibold text-white sm:text-[1.6rem]',
+                    isArabic ? 'tracking-[0.08em]' : 'uppercase tracking-[0.32em]'
+                  )}
+                >
+                  {t('home.hero.serviceHierarchy.primary.design')}
+                </span>
+                <span className="h-px w-8 bg-white/30 sm:w-12" />
+                <span
+                  className={cn(
+                    'font-display text-[1.25rem] font-semibold text-white sm:text-[1.6rem]',
+                    isArabic ? 'tracking-[0.08em]' : 'uppercase tracking-[0.32em]'
+                  )}
+                >
+                  {t('home.hero.serviceHierarchy.primary.build')}
+                </span>
+              </div>
+
+              <div className="w-full border-t border-white/10 pt-3">
+                <div
+                  className={cn(
+                    'flex flex-wrap items-center justify-center gap-3 text-white/72 sm:gap-4',
+                    isArabic ? 'text-sm font-medium' : 'text-[11px] font-semibold uppercase tracking-[0.34em] sm:text-xs'
+                  )}
+                >
+                  <span>{t('home.hero.serviceHierarchy.secondary.landscape')}</span>
+                  <span className="h-1 w-1 rounded-full bg-white/40" />
+                  <span>{t('home.hero.serviceHierarchy.secondary.pool')}</span>
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
         </motion.div>
       </div>
     </section>

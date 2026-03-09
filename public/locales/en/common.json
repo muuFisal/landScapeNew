@@ -10,7 +10,8 @@
     "work": "Work",
     "services": "Services",
     "faq": "FAQ",
-    "joinUs": "Join us"
+    "instagram": "Instagram",
+    "instagramAriaLabel": "Open MDO Landscape on Instagram"
   },
   "common": {
     "startProject": "Start your project",
@@ -56,7 +57,18 @@
     "hero": {
       "eyebrow": "Luxury landscape company",
       "title": "most desired outdoor",
-      "description": "A refined landscape presentation for design, build, and renovation, delivered through calm monochrome visuals and premium simplicity."
+      "description": "A refined landscape presentation for design, build, and renovation, delivered through calm monochrome visuals and premium simplicity.",
+      "serviceHierarchy": {
+        "primary": {
+          "design": "Design",
+          "build": "Build"
+        },
+        "secondary": {
+          "landscape": "Landscape",
+          "pool": "Pool"
+        },
+        "ariaLabel": "Primary services are design and build, with landscape and pool as supporting specialties."
+      }
     },
     "services": {
       "eyebrow": "Bespoke luxury pool landscaping services",

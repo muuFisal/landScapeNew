@@ -5,13 +5,12 @@ import { motion } from 'framer-motion';
 import { Seo } from '@/components/ui/Seo';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { ContactCtaSection } from '@/components/home/ContactCtaSection';
+import { HeroSection } from '@/components/home/HeroSection';
 import { HomeServicesSection } from '@/components/home/HomeServicesSection';
 import { projects } from '@/data/projects';
 
 const homeContent = {
   en: {
-    heroTitle: 'MOST DESIRED OUTDOOR',
-    heroSubtitle: 'Landscape | Pool | Design | Build |',
     aboutTitle: 'About MDO Landscape',
     aboutBody:
       'MDO Landscape creates elegant outdoor spaces where landscape, architecture, and lifestyle meet in one refined experience. From concept to execution, the studio focuses on clean geometry, layered planting, premium materials, and calm visual storytelling that feels luxurious across every scale.',
@@ -44,8 +43,6 @@ const homeContent = {
     projectButton: 'View project',
   },
   ar: {
-    heroTitle: 'المساحة الخارجية الأكثر طلبًا',
-    heroSubtitle: 'لاندسكيب | حمام سباحة | تصميم | تنفيذ |',
     aboutTitle: 'عن الشركة',
     aboutBody:
       'تقدم MDO Landscape مساحات خارجية أنيقة يلتقي فيها اللاندسكيب مع العمارة وأسلوب الحياة داخل تجربة واحدة متكاملة. من الفكرة وحتى التنفيذ يركز الاستوديو على الهندسة النظيفة والزراعة متعددة الطبقات والخامات الراقية وصناعة مشهد بصري هادئ يشعر العميل بالفخامة في كل تفصيلة.',
@@ -88,18 +85,7 @@ export function HomePage() {
     <>
       <Seo title={t('seo.home.title')} description={t('seo.home.description')} path="/" />
 
-      <section className="relative isolate min-h-screen overflow-hidden bg-black text-white">
-        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1800&q=80" alt="Luxury landscape hero" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="hero-overlay absolute inset-0 bg-black/40" />
-        <div className="container-shell relative flex min-h-screen items-end justify-center pb-24 text-center sm:pb-28 lg:pb-32">
-          <AnimatedSection animation="scale" className="w-full">
-            <h1 className="mx-auto max-w-5xl text-center text-5xl font-semibold uppercase leading-[0.95] text-white sm:text-7xl lg:text-[7.5rem]">
-              {content.heroTitle}
-            </h1>
-            <p className="mt-8 text-center text-lg font-medium tracking-[0.2em] text-white/90 sm:text-2xl">{content.heroSubtitle}</p>
-          </AnimatedSection>
-        </div>
-      </section>
+      <HeroSection />
 
       <AnimatedSection animation="left" className="section-space bg-surface-muted">
         <section id="about" className="container-shell grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
