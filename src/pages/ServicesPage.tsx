@@ -70,7 +70,7 @@ export function ServicesPage() {
                       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
                         <ButtonLink
                           to={getProjectsPath(service.slug)}
-                          className="group w-full text-xs font-semibold uppercase tracking-[0.18em] sm:w-auto"
+                          className="group w-full border border-black/5 !bg-brand-900 !text-white !shadow-soft hover:!bg-brand-700 hover:!shadow-soft dark:border-white/10 sm:w-auto text-xs font-semibold uppercase tracking-[0.18em]"
                         >
                           {t('common.viewProjects')}
                           <ArrowRight
@@ -83,7 +83,7 @@ export function ServicesPage() {
 
                         <GhostLink
                           to="/contact#form"
-                          className="w-full border-black/10 bg-transparent text-xs font-semibold uppercase tracking-[0.18em] text-ink-900 hover:border-ink-900/25 hover:bg-surface-muted sm:w-auto"
+                          className="w-full !border-black/12 !bg-black/[0.03] !text-ink-900 backdrop-blur-sm hover:!border-black/20 hover:!bg-black/[0.06] hover:!text-ink-900 dark:!border-white/12 dark:!bg-white/[0.04] dark:!text-ink-900 dark:hover:!border-white/20 dark:hover:!bg-white/[0.08] sm:w-auto text-xs font-semibold uppercase tracking-[0.18em]"
                         >
                           {t('common.requestService')}
                         </GhostLink>
