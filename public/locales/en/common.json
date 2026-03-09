@@ -255,6 +255,11 @@
     "title": "A landscape studio shaped around modern restraint and premium execution",
     "description": "This React version keeps the visual calm, monochrome elegance, and premium storytelling expected from a luxury landscape and pool studio.",
     "story": "Our studio approach is rooted in visual simplicity, smart planning, and outdoor experiences that feel natural to live in. Whether a client needs a complete build or a considered renovation, we focus on creating atmosphere, clarity, and long-term value.",
+    "media": {
+      "introAlt": "Luxury outdoor living space with a refined pool and architectural landscape",
+      "missionAlt": "Atmospheric landscape scene representing MDO Landscape's mission",
+      "visionAlt": "Modern luxury villa and garden representing MDO Landscape's vision"
+    },
     "valuesEyebrow": "What shapes the work",
     "valuesTitle": "Design values that guide every decision",
     "valuesDescription": "We care about elegance, clarity, and a result that still feels good months and years after handover.",
