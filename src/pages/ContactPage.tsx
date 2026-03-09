@@ -32,7 +32,7 @@ export function ContactPage() {
               ))}
             </div>
           </div>
-          <div className="surface-card p-6 sm:p-8">
+          <div id="form" className="surface-card scroll-mt-28 p-6 sm:p-8">
             <h2 className="font-display text-4xl font-semibold text-ink-900">{t('contact.formTitle')}</h2>
             <form className="mt-6 grid gap-4">
               {[

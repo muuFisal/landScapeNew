@@ -19,6 +19,7 @@
     "seeAllProjects": "See all projects",
     "viewProject": "View project",
     "viewProjects": "View projects",
+    "requestService": "Request service",
     "bookConsultation": "Book a consultation",
     "backHome": "Back to home",
     "backToProjects": "Back to projects",
@@ -257,6 +258,9 @@
     "location": "Location",
     "area": "Area",
     "year": "Year",
+    "previousImage": "Show previous image",
+    "nextImage": "Show next image",
+    "goToSlide": "Go to image {{number}}",
     "challenge": "The challenge",
     "solution": "The solution"
   },

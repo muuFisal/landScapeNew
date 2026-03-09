@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
+import { ButtonLink, GhostLink } from '@/components/ui/Button';
 import { Seo } from '@/components/ui/Seo';
 import { getProjectsPath, services } from '@/data/services';
 import { cn } from '@/utils/cn';
@@ -42,13 +43,13 @@ export function ServicesPage() {
 
             return (
               <AnimatedSection key={service.slug} animation={index % 2 === 0 ? 'left' : 'right'}>
-                <article className="h-full">
-                  <Link
-                    to={getProjectsPath(service.slug)}
-                    className="group block h-full overflow-hidden rounded-[2rem] border border-black/5 bg-surface-strong outline-none transition duration-500 hover:-translate-y-1 hover:shadow-card focus-visible:ring-2 focus-visible:ring-brand-900/35 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base dark:border-white/10"
-                  >
-                    <div className="grid items-center gap-0 lg:grid-cols-[1.02fr_0.98fr]">
-                      <div className={cn('overflow-hidden bg-black/5', index % 2 === 1 && 'lg:order-2')}>
+                <article className="group h-full overflow-hidden rounded-[2rem] border border-black/5 bg-surface-strong transition duration-500 hover:-translate-y-1 hover:shadow-card dark:border-white/10">
+                  <div className="grid items-center gap-0 lg:grid-cols-[1.02fr_0.98fr]">
+                    <div className={cn('overflow-hidden bg-black/5', index % 2 === 1 && 'lg:order-2')}>
+                      <Link
+                        to={getProjectsPath(service.slug)}
+                        className="block outline-none focus-visible:ring-2 focus-visible:ring-brand-900/35 focus-visible:ring-inset"
+                      >
                         <img
                           src={service.image}
                           alt={title}
@@ -57,20 +58,38 @@ export function ServicesPage() {
                             service.imagePositionClassName,
                           )}
                         />
-                      </div>
+                      </Link>
+                    </div>
 
-                      <div className={cn('flex h-full flex-col justify-center p-6 sm:p-8 lg:p-10', index % 2 === 1 && 'lg:order-1')}>
-                        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-ink-500">0{index + 1}</p>
-                        <h2 className="text-4xl font-semibold uppercase leading-tight text-ink-900 sm:text-5xl">{title}</h2>
-                        <p className="mt-5 text-lg leading-8 text-ink-700">{short}</p>
-                        <p className="mt-5 text-base leading-8 text-ink-600">{description}</p>
-                        <span className="mt-8 inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.14em] text-ink-900 transition group-hover:gap-4">
+                    <div className={cn('flex h-full flex-col justify-center p-6 sm:p-8 lg:p-10', index % 2 === 1 && 'lg:order-1')}>
+                      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-ink-500">0{index + 1}</p>
+                      <h2 className="text-4xl font-semibold uppercase leading-tight text-ink-900 sm:text-5xl">{title}</h2>
+                      <p className="mt-5 text-lg leading-8 text-ink-700">{short}</p>
+                      <p className="mt-5 text-base leading-8 text-ink-600">{description}</p>
+
+                      <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                        <ButtonLink
+                          to={getProjectsPath(service.slug)}
+                          className="group w-full text-xs font-semibold uppercase tracking-[0.18em] sm:w-auto"
+                        >
                           {t('common.viewProjects')}
-                          <ArrowRight className={cn('h-4 w-4 transition-transform', locale === 'ar' ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1')} />
-                        </span>
+                          <ArrowRight
+                            className={cn(
+                              'h-4 w-4 transition-transform',
+                              locale === 'ar' ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1',
+                            )}
+                          />
+                        </ButtonLink>
+
+                        <GhostLink
+                          to="/contact#form"
+                          className="w-full border-black/10 bg-transparent text-xs font-semibold uppercase tracking-[0.18em] text-ink-900 hover:border-ink-900/25 hover:bg-surface-muted sm:w-auto"
+                        >
+                          {t('common.requestService')}
+                        </GhostLink>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 </article>
               </AnimatedSection>
             );

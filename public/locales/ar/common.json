@@ -19,6 +19,7 @@
     "seeAllProjects": "عرض كل المشاريع",
     "viewProject": "عرض المشروع",
     "viewProjects": "عرض المشاريع",
+    "requestService": "اطلب الخدمة",
     "bookConsultation": "احجز استشارة",
     "backHome": "العودة للرئيسية",
     "backToProjects": "العودة للمشاريع",
@@ -257,6 +258,9 @@
     "location": "الموقع",
     "area": "المساحة",
     "year": "السنة",
+    "previousImage": "اعرض الصورة السابقة",
+    "nextImage": "اعرض الصورة التالية",
+    "goToSlide": "انتقل إلى الصورة {{number}}",
     "challenge": "التحدي",
     "solution": "الحل"
   },

@@ -2,15 +2,27 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export function ScrollToTopOnRouteChange() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant' as any // Use instant to avoid weird flickering, but the request says "smooth" for scroll-to-top button. Usually route change should be instant top.
-    });
-  }, [pathname]);
+    if (hash) {
+      const frameId = window.requestAnimationFrame(() => {
+        const targetId = decodeURIComponent(hash.slice(1));
+        const target = document.getElementById(targetId) ?? document.querySelector(hash);
+
+        if (target) {
+          target.scrollIntoView({ block: 'start' });
+          return;
+        }
+
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      });
+
+      return () => window.cancelAnimationFrame(frameId);
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [hash, pathname]);
 
   return null;
 }
