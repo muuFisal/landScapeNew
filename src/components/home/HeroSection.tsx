@@ -36,7 +36,7 @@ export function HeroSection() {
           <div className="mt-8 flex justify-center sm:mt-10">
             <div
               aria-label={t('home.hero.serviceHierarchy.ariaLabel')}
-              className="inline-flex w-full max-w-[32rem] flex-col items-center gap-4 rounded-[2rem] border border-white/12 bg-black/20 px-5 py-4 shadow-card backdrop-blur-md sm:px-8 sm:py-5"
+              className="inline-flex w-full max-w-[34rem] flex-col items-center rounded-[2rem] border border-white/12 bg-black/20 px-5 py-5 shadow-card backdrop-blur-md sm:px-8 sm:py-6"
             >
               <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
                 <span
@@ -58,10 +58,11 @@ export function HeroSection() {
                 </span>
               </div>
 
-              <div className="w-full border-t border-white/10 pt-3">
+              <div className="flex w-full flex-col items-center gap-3 pt-4">
+                <div className="h-5 w-px bg-white/18" />
                 <div
                   className={cn(
-                    'flex flex-wrap items-center justify-center gap-3 text-white/72 sm:gap-4',
+                    'flex flex-wrap items-center justify-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2.5 text-white/78 sm:gap-4 sm:px-5',
                     isArabic ? 'text-sm font-medium' : 'text-[11px] font-semibold uppercase tracking-[0.34em] sm:text-xs'
                   )}
                 >

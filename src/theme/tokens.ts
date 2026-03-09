@@ -56,7 +56,7 @@ export const themeTokens = {
   },
   fonts: {
     display: {
-      en: 'Playfair Display',
+      en: 'Source Serif 4',
       ar: 'IBM Plex Sans Arabic',
     },
     body: {

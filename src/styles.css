@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-display-en: 'Playfair Display';
+  --font-display-en: 'Source Serif 4';
   --font-body-en: 'Manrope';
   --font-display-ar: 'IBM Plex Sans Arabic';
   --font-body-ar: 'IBM Plex Sans Arabic';

@@ -1,8 +1,8 @@
-export type ProjectCategory = 'residential' | 'commercial' | 'poolside' | 'courtyard';
+import type { ProjectServiceFilter, ServiceSlug } from '@/data/services';
 
 export type Project = {
   slug: string;
-  category: ProjectCategory;
+  services: ServiceSlug[];
   cover: string;
   gallery: string[];
   area: string;
@@ -19,7 +19,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     slug: 'layers-of-tranquility-meadows',
-    category: 'residential',
+    services: ['design', 'landscape'],
     area: '1,950 m²',
     year: '2025',
     location: { en: 'Meadows', ar: 'ميدوز' },
@@ -53,7 +53,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'lime-tree-valley',
-    category: 'courtyard',
+    services: ['build', 'landscape'],
     area: '2,250 m²',
     year: '2025',
     location: { en: 'Dubai Valley', ar: 'دبي فالي' },
@@ -87,7 +87,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'palm-pergola-court',
-    category: 'poolside',
+    services: ['design', 'build', 'pool'],
     area: '1,600 m²',
     year: '2024',
     location: { en: 'Palm Jumeirah', ar: 'نخلة جميرا' },
@@ -121,7 +121,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'courtyard-balance',
-    category: 'commercial',
+    services: ['design', 'build', 'landscape'],
     area: '2,050 m²',
     year: '2024',
     location: { en: 'Emirates Hills', ar: 'إمارات هيلز' },
@@ -154,3 +154,8 @@ export const projects: Project[] = [
     ],
   },
 ];
+
+export function filterProjectsByService(filter: ProjectServiceFilter) {
+  if (filter === 'all') return projects;
+  return projects.filter((project) => project.services.includes(filter));
+}

@@ -18,6 +18,7 @@
     "exploreProjects": "Explore projects",
     "seeAllProjects": "See all projects",
     "viewProject": "View project",
+    "viewProjects": "View projects",
     "bookConsultation": "Book a consultation",
     "backHome": "Back to home",
     "backToProjects": "Back to projects",
@@ -30,11 +31,15 @@
     },
     "projects": {
       "title": "Projects | MDO Landscape",
-      "description": "Browse curated landscape projects across villas, courtyards, commercial parks, and poolside environments."
+      "description": "Browse curated landscape projects through a service-led filter for design, build, landscape, and pool work."
     },
     "about": {
       "title": "About | MDO Landscape",
       "description": "Meet MDO Landscape, a landscape design and build studio focused on elegant outdoor experiences and premium execution."
+    },
+    "services": {
+      "title": "Services | MDO Landscape",
+      "description": "Explore MDO Landscape's four service pillars and move directly into related projects for design, build, landscape, and pool work."
     },
     "contact": {
       "title": "Contact | MDO Landscape",
@@ -57,7 +62,7 @@
     "hero": {
       "eyebrow": "Luxury landscape company",
       "title": "most desired outdoor",
-      "description": "A refined landscape presentation for design, build, and renovation, delivered through calm monochrome visuals and premium simplicity.",
+      "description": "A refined landscape presentation for design, build, landscape, and pool services, delivered through calm monochrome visuals and premium simplicity.",
       "serviceHierarchy": {
         "primary": {
           "design": "Design",
@@ -71,21 +76,26 @@
       }
     },
     "services": {
-      "eyebrow": "Bespoke luxury pool landscaping services",
-      "title": "Design, build, and renovation in one quiet premium story.",
-      "description": "We create strong visual connections between landscape and architecture using geometry, contrast, and refined material direction.",
+      "eyebrow": "Our services",
+      "title": "Four focused service pillars shaped around premium outdoor delivery.",
+      "description": "Each service opens directly into related work, making it easy to move from the offer itself to the portfolio behind it.",
+      "sectionCta": "Explore full services",
       "items": [
         {
           "title": "Design",
-          "body": "From concept direction to zoning, planting, and material language, the design process is clear, modern, and visually disciplined."
+          "body": "Concept direction, zoning, material language, and spatial rhythm shaped with architectural clarity."
         },
         {
           "title": "Build",
-          "body": "Execution covers hardscape, pools, pergolas, planting, lighting, and site coordination with premium attention to detail."
+          "body": "Precise delivery across hardscape, planting, pool coordination, and premium site execution."
         },
         {
-          "title": "Renovation",
-          "body": "We refresh underperforming outdoor spaces with stronger identity, smarter flow, and a more elevated overall experience."
+          "title": "Landscape",
+          "body": "Planting composition, outdoor zoning, and calm material transitions designed to feel complete."
+        },
+        {
+          "title": "Pool",
+          "body": "Water-focused environments integrated into the wider landscape with proportion, atmosphere, and ease."
         }
       ]
     },
@@ -203,44 +213,44 @@
   },
   "servicesData": {
     "design": {
-      "title": "Landscape Design",
-      "body": "Concept development, mood direction, circulation planning, planting strategy, and presentation-ready layouts shaped around your site and lifestyle."
+      "title": "Design",
+      "short": "Concept-led planning with disciplined spatial flow, mood direction, and premium material intent.",
+      "description": "We define circulation, zoning, planting strategy, and the overall outdoor language from the earliest concept studies through presentation-ready layouts."
     },
     "build": {
-      "title": "Landscape Build",
-      "body": "Turnkey outdoor execution covering hardscape, planting, lighting, water features, pergolas, pools, and precise on-site coordination."
+      "title": "Build",
+      "short": "Site delivery shaped by quality control, visual discipline, and detail-driven execution.",
+      "description": "From hardscape and structural works to planting, lighting, and final finishing, the build phase is managed to preserve the design intent with premium precision."
     },
-    "renovation": {
-      "title": "Landscape Renovation",
-      "body": "Upgrade aging gardens and outdoor areas with smarter flow, stronger materials, fresh planting, and a more premium overall identity."
+    "landscape": {
+      "title": "Landscape",
+      "short": "Planting composition, outdoor zoning, and atmosphere layered to feel calm, spacious, and resolved.",
+      "description": "We curate the living structure of the exterior experience through layered greenery, framed views, circulation clarity, and landscape moments that strengthen the architecture."
+    },
+    "pool": {
+      "title": "Pool",
+      "short": "Pool environments integrated as part of one cohesive outdoor story rather than a separate add-on.",
+      "description": "Our pool work considers geometry, approach, surrounding finishes, lighting, and lounge relationships so water becomes a seamless part of the wider design-build experience."
     }
+  },
+  "servicesPage": {
+    "eyebrow": "MDO Landscape",
+    "title": "Our Services",
+    "description": "Explore the four service pillars behind the studio and move directly into the projects that best express each one."
   },
   "projects": {
     "eyebrow": "Project library",
     "title": "A portfolio built for clarity, beauty, and easy exploration",
-    "description": "Filter the work by project type to quickly explore residential landscapes, commercial sites, pool environments, and courtyards.",
-    "filters": [
-      {
-        "key": "all",
-        "label": "All"
-      },
-      {
-        "key": "residential",
-        "label": "Residential"
-      },
-      {
-        "key": "commercial",
-        "label": "Commercial"
-      },
-      {
-        "key": "poolside",
-        "label": "Poolside"
-      },
-      {
-        "key": "courtyard",
-        "label": "Courtyard"
-      }
-    ]
+    "description": "Filter the portfolio by service to move directly into design-led studies, build delivery, landscape composition, and pool environments.",
+    "filtersLabel": "Project service filters",
+    "filters": {
+      "all": "All services"
+    },
+    "allSummary": "Showing {{count}} curated projects across the full studio portfolio.",
+    "activeSummary": "Showing {{count}} curated projects related to {{service}}.",
+    "resetFilter": "Show all services",
+    "emptyTitle": "No projects available yet",
+    "emptyDescription": "There are no published projects for {{service}} yet."
   },
   "projectDetails": {
     "projectFacts": "Project facts",

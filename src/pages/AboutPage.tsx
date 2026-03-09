@@ -48,19 +48,12 @@ function DirectionStoryCard({
             : 'bg-[radial-gradient(circle_at_18%_78%,rgba(0,0,0,0.44),transparent_34%)]'
         )}
       />
-      <div
-        className={cn(
-          'absolute inset-x-0 bottom-0 h-[44%]',
-          isArabic
-            ? 'bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.16)_18%,rgba(0,0,0,0.52)_58%,rgba(0,0,0,0.84)_100%)]'
-            : 'bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.16)_18%,rgba(0,0,0,0.52)_58%,rgba(0,0,0,0.84)_100%)]'
-        )}
-      />
+      <div className="absolute inset-x-0 bottom-0 h-[48%] bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.16)_18%,rgba(0,0,0,0.52)_58%,rgba(0,0,0,0.9)_100%)]" />
 
-      <div className={cn('relative flex h-full items-end p-4 sm:p-6 lg:p-7', isArabic ? 'justify-end' : 'justify-start')}>
+      <div className={cn('relative flex h-full items-end p-5 sm:p-7 lg:p-8', isArabic ? 'justify-end' : 'justify-start')}>
         <div
           className={cn(
-            'w-full max-w-[29rem] rounded-[1.5rem] border border-white/10 bg-[linear-gradient(145deg,rgba(9,9,9,0.84),rgba(9,9,9,0.56))] px-5 py-5 text-white shadow-[0_24px_70px_rgba(0,0,0,0.22)] sm:px-6 sm:py-6 lg:px-7 lg:py-7',
+            'w-full max-w-[30rem] text-white [text-shadow:0_10px_40px_rgba(0,0,0,0.38)]',
             isArabic ? 'text-right' : 'text-left'
           )}
         >
@@ -73,7 +66,7 @@ function DirectionStoryCard({
             >
               {card.eyebrow}
             </span>
-            <span className="h-px flex-1 bg-white/16" />
+            <span className="h-px flex-1 bg-white/24" />
           </div>
 
           <h2
@@ -89,7 +82,7 @@ function DirectionStoryCard({
 
           <p
             className={cn(
-              'mt-4 text-sm leading-7 text-white sm:text-[0.98rem] sm:leading-7 lg:text-base lg:leading-8',
+              'mt-4 text-sm leading-7 text-white/88 sm:text-[0.98rem] sm:leading-7 lg:text-base lg:leading-8',
               isArabic ? 'max-w-[35ch]' : 'max-w-[33ch]'
             )}
           >
@@ -143,7 +136,7 @@ export function AboutPage() {
             <img
               src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80"
               alt={t('about.media.introAlt')}
-              className="aspect-[5/6] w-full object-cover sm:aspect-[4/3] lg:aspect-[5/6]"
+              className="aspect-[5/6] w-full object-cover object-[center_58%] sm:aspect-[4/3] lg:aspect-[5/6]"
             />
           </div>
         </div>
