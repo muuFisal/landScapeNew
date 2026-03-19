@@ -1,9 +1,11 @@
-import { Github, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } from 'lucide-react';
+import { useState } from 'react';
+import { Github, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { Seo } from '@/components/ui/Seo';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { useSettings } from '@/context/SettingsContext';
+import { useContactSubmit } from '@/hooks/useContactSubmit';
 
 const socialIconsMap: Record<string, React.ReactNode> = {
   facebook: <Twitter className="h-5 w-5" />, // Note: Using Twitter or maybe standard `lucide-react` Facebook exists, let's use a generic link or X for twitter. Wait `lucide-react` has Facebook. 
@@ -18,6 +20,23 @@ const socialIconsMap: Record<string, React.ReactNode> = {
 export function ContactPage() {
   const { t } = useTranslation();
   const { settings } = useSettings();
+  const { submit, loading, success, error } = useContactSubmit();
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    subject: 'Website Inquiry',
+    message: ''
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const isSuccess = await submit(formData);
+    if (isSuccess) {
+      setFormData({ name: '', phone: '', email: '', subject: 'Website Inquiry', message: '' });
+    }
+  };
 
   const phone = settings?.phone || '+971 50 000 0000';
   const email = settings?.email || 'hello@mdolandscape.com';
@@ -72,22 +91,67 @@ export function ContactPage() {
           </div>
           <div id="form" className="surface-card scroll-mt-28 p-6 sm:p-8">
             <h2 className="font-display text-3xl font-semibold text-ink-900">{t('contact.formTitle')}</h2>
-            <form className="mt-6 grid gap-4">
-              {[
-                { label: t('contact.form.name'), type: 'text' },
-                { label: t('contact.form.phone'), type: 'tel' },
-                { label: t('contact.form.email'), type: 'email' },
-              ].map((field) => (
-                <label key={field.label} className="grid gap-2 text-sm font-medium text-ink-700">
-                  {field.label}
-                  <input type={field.type} className="rounded-md border border-black/5 bg-surface-base px-4 py-3 outline-none transition focus:border-brand-400 dark:border-white/10" />
-                </label>
-              ))}
+            <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
+              {success && (
+                <div className="flex items-center gap-3 rounded-lg bg-green-50 p-4 text-sm font-medium text-green-800 dark:bg-green-500/10 dark:text-green-400">
+                  <CheckCircle2 className="h-5 w-5" />
+                  {t('contact.form.success', 'Your message has been sent successfully.')}
+                </div>
+              )}
+              {error && (
+                <div className="flex items-center gap-3 rounded-lg bg-red-50 p-4 text-sm font-medium text-red-800 dark:bg-red-500/10 dark:text-red-400">
+                  <AlertCircle className="h-5 w-5 shrink-0" />
+                  {error}
+                </div>
+              )}
+              
+              <label className="grid gap-2 text-sm font-medium text-ink-700">
+                {t('contact.form.name')}
+                <input 
+                  type="text" 
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="rounded-md border border-black/5 bg-surface-base px-4 py-3 outline-none transition focus:border-brand-400 dark:border-white/10" 
+                />
+              </label>
+              <label className="grid gap-2 text-sm font-medium text-ink-700">
+                {t('contact.form.phone')}
+                <input 
+                  type="tel" 
+                  required
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="rounded-md border border-black/5 bg-surface-base px-4 py-3 outline-none transition focus:border-brand-400 dark:border-white/10" 
+                />
+              </label>
+              <label className="grid gap-2 text-sm font-medium text-ink-700">
+                {t('contact.form.email')}
+                <input 
+                  type="email" 
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="rounded-md border border-black/5 bg-surface-base px-4 py-3 outline-none transition focus:border-brand-400 dark:border-white/10" 
+                />
+              </label>
               <label className="grid gap-2 text-sm font-medium text-ink-700">
                 {t('contact.form.message')}
-                <textarea rows={5} className="rounded-md border border-black/5 bg-surface-base px-4 py-3 outline-none transition focus:border-brand-400 dark:border-white/10" />
+                <textarea 
+                  rows={5} 
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="rounded-md border border-black/5 bg-surface-base px-4 py-3 outline-none transition focus:border-brand-400 dark:border-white/10" 
+                />
               </label>
-              <button type="button" className="mt-2 inline-flex w-fit items-center justify-center rounded-full bg-brand-700 px-5 py-3 text-sm font-semibold text-white shadow-card transition hover:bg-brand-800">
+              
+              <button 
+                type="submit" 
+                disabled={loading}
+                className="mt-2 inline-flex w-fit items-center justify-center gap-2 rounded-full bg-brand-700 px-5 py-3 text-sm font-semibold text-white shadow-card transition hover:bg-brand-800 disabled:opacity-70"
+              >
+                {loading && <Loader2 className="h-4 w-4 animate-spin" />}
                 {t('contact.form.submit')}
               </button>
             </form>
