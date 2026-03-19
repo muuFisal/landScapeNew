@@ -31,15 +31,9 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
           const data = response.data;
           setSettings(data);
           
-          if (data.media?.favicon) {
-            let link = document.querySelector("link[rel~='icon']") as HTMLLinkElement;
-            if (!link) {
-                link = document.createElement('link');
-                link.rel = 'icon';
-                document.head.appendChild(link);
-            }
-            link.href = data.media.favicon;
-          }
+          import('@/lib/seo/updateSiteMeta').then(({ updateSiteMeta }) => {
+              updateSiteMeta({ settings: data });
+          });
         }
       } catch (err: any) {
         if (mounted) {
