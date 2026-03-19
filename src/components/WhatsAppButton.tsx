@@ -1,9 +1,18 @@
 import { MessageCircle } from 'lucide-react';
+import { useSettings } from '@/context/SettingsContext';
 
 export function WhatsAppButton({ label }: { label: string }) {
+  const { settings } = useSettings();
+
+  const formattedWhatsApp = settings?.whatsapp
+    ? `https://wa.me/${settings.whatsapp.replace(/\D/g, '')}`
+    : 'https://wa.me/';
+
+  if (!settings?.whatsapp) return null; // Wait for settings or don't render if no whatsapp
+
   return (
     <a
-      href="https://wa.me/971500000000"
+      href={formattedWhatsApp}
       target="_blank"
       rel="noreferrer"
       aria-label={label}

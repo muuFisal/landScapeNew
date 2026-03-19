@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from '@/App';
 import { ThemeProvider } from '@/context/ThemeContext';
+import { SettingsProvider } from '@/context/SettingsContext';
 import { initI18n } from '@/i18n';
 import { applyThemeTokens } from '@/theme/tokens';
 import './styles.css';
@@ -13,9 +14,11 @@ async function bootstrap() {
 
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
+      <SettingsProvider>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </SettingsProvider>
     </BrowserRouter>,
   );
 }

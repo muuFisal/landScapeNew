@@ -1,11 +1,30 @@
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Github, Instagram, Linkedin, Mail, MapPin, Phone, Twitter, Youtube } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { Seo } from '@/components/ui/Seo';
 import { SectionHeading } from '@/components/ui/SectionHeading';
+import { useSettings } from '@/context/SettingsContext';
+
+const socialIconsMap: Record<string, React.ReactNode> = {
+  facebook: <Twitter className="h-5 w-5" />, // Note: Using Twitter or maybe standard `lucide-react` Facebook exists, let's use a generic link or X for twitter. Wait `lucide-react` has Facebook. 
+  // Let me just import Facebook
+  x: <Twitter className="h-5 w-5" />,
+  youtube: <Youtube className="h-5 w-5" />,
+  instagram: <Instagram className="h-5 w-5" />,
+  tiktok: <Twitter className="h-5 w-5" />, // fallback icon
+  linkedin: <Linkedin className="h-5 w-5" />,
+};
 
 export function ContactPage() {
   const { t } = useTranslation();
+  const { settings } = useSettings();
+
+  const phone = settings?.phone || '+971 50 000 0000';
+  const email = settings?.email || 'hello@mdolandscape.com';
+  const address = settings?.address || 'Dubai · Abu Dhabi · Riyadh';
+
+  const socials = settings?.socials || {};
+  const activeSocials = Object.entries(socials).filter(([_, url]) => url && url.trim() !== '');
 
   return (
     <>
@@ -16,9 +35,9 @@ export function ContactPage() {
             <SectionHeading eyebrow={t('contact.eyebrow')} title={t('contact.title')} description={t('contact.description')} />
             <div className="grid gap-4">
               {[
-                { icon: Phone, title: t('contact.phone'), body: '+971 50 000 0000' },
-                { icon: Mail, title: t('contact.email'), body: 'hello@mdolandscape.com' },
-                { icon: MapPin, title: t('contact.location'), body: 'Dubai · Abu Dhabi · Riyadh' },
+                { icon: Phone, title: t('contact.phone'), body: phone },
+                { icon: Mail, title: t('contact.email'), body: email },
+                { icon: MapPin, title: t('contact.location'), body: address },
               ].map((item) => (
                 <div key={item.title} className="surface-card flex items-start gap-4 p-5">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-700 dark:bg-white/5 dark:text-brand-500">
@@ -31,6 +50,25 @@ export function ContactPage() {
                 </div>
               ))}
             </div>
+            
+            {activeSocials.length > 0 && (
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                {activeSocials.map(([key, url]) => (
+                  <a
+                    key={key}
+                    href={url as string}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-12 w-12 items-center justify-center rounded-full border border-black/5 bg-surface-base text-ink-500 transition-all hover:border-brand-200 hover:bg-brand-50 hover:text-brand-900 hover:shadow-soft dark:border-white/10 dark:hover:border-brand-900/40 dark:hover:bg-brand-900/10 dark:hover:text-brand-400"
+                    aria-label={`Follow us on ${key}`}
+                  >
+                    {key === 'facebook' ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    ) : socialIconsMap[key] || <Github className="h-5 w-5" />}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
           <div id="form" className="surface-card scroll-mt-28 p-6 sm:p-8">
             <h2 className="font-display text-3xl font-semibold text-ink-900">{t('contact.formTitle')}</h2>

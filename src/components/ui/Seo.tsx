@@ -1,10 +1,17 @@
 import { useEffect } from 'react';
+import { useSettings } from '@/context/SettingsContext';
 
 export function Seo({ title, description, path }: { title: string; description: string; path: string }) {
+  const { settings } = useSettings();
+
   useEffect(() => {
     const origin = window.location.origin;
     const canonicalHref = `${origin}${path}`;
-    document.title = title;
+    
+    const dynamicTitle = settings?.name ? title.replace('MDO Landscape', settings.name) : title;
+    const dynamicDesc = description !== 'undefined' ? description : (settings?.meta_desc || '');
+    
+    document.title = dynamicTitle;
 
     const setMeta = (name: string, content: string, property = false) => {
       const selector = property ? `meta[property="${name}"]` : `meta[name="${name}"]`;
@@ -17,14 +24,14 @@ export function Seo({ title, description, path }: { title: string; description: 
       meta.content = content;
     };
 
-    setMeta('description', description);
-    setMeta('og:title', title, true);
-    setMeta('og:description', description, true);
+    setMeta('description', dynamicDesc);
+    setMeta('og:title', dynamicTitle, true);
+    setMeta('og:description', dynamicDesc, true);
     setMeta('og:type', 'website', true);
     setMeta('og:url', canonicalHref, true);
     setMeta('twitter:card', 'summary_large_image');
-    setMeta('twitter:title', title);
-    setMeta('twitter:description', description);
+    setMeta('twitter:title', dynamicTitle);
+    setMeta('twitter:description', dynamicDesc);
 
     let link = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!link) {

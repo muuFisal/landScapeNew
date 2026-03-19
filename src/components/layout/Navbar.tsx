@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
+import { useSettings } from '@/context/SettingsContext';
+import { useTheme } from '@/context/ThemeContext';
 import { siteLinks } from '@/data/site';
 import { cn } from '@/utils/cn';
 
@@ -26,10 +28,17 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { t, i18n } = useTranslation();
+  const { settings } = useSettings();
+  const { theme } = useTheme();
   const menuRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
 
   const isHeroPage = ['/', '/services', '/gallery'].includes(location.pathname);
+  const isDark = theme === 'dark' || (theme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+  const logoUrl = isDark 
+    ? (settings?.media?.dark_logo || settings?.media?.logo || settings?.media?.selected_logo)
+    : (settings?.media?.light_logo || settings?.media?.logo || settings?.media?.selected_logo);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
@@ -104,18 +113,25 @@ export function Navbar() {
         <div className="container-shell flex h-16 items-center justify-between gap-4 transition-all duration-700">
           <Link
             to="/"
-            className={cn(
-              'font-display text-[1.8rem] font-semibold tracking-[0.2em] outline-none transition-all focus-visible:ring-2 focus-visible:ring-offset-2 sm:text-[2.2rem]',
-              textClass,
-              focusRingClass
-            )}
+            className={cn('outline-none transition-all flex items-center focus-visible:ring-2 focus-visible:ring-offset-2', focusRingClass)}
+            aria-label="Home"
           >
-            MDO
+            {logoUrl ? (
+              <img src={logoUrl} alt={settings?.name || 'Logo'} className="h-8 w-auto object-contain sm:h-10 transition-all duration-300" />
+            ) : (
+              <span className={cn('font-display text-[1.8rem] font-semibold tracking-[0.2em] sm:text-[2.2rem]', textClass)}>
+                {settings?.name || 'MDO'}
+              </span>
+            )}
           </Link>
 
           <nav className="hidden items-center gap-7 lg:flex">
-            {navActions.map((action) =>
-              action.type === 'route' ? (
+            {navActions.map((action) => {
+              if (action.type === 'external' && action.key === 'instagram' && !settings?.socials?.instagram && !action.href) return null;
+              
+              const href = action.type === 'external' && action.key === 'instagram' && settings?.socials?.instagram ? settings.socials.instagram : (action as any).href;
+
+              return action.type === 'route' ? (
                 <NavLink
                   key={action.key}
                   to={action.to}
@@ -127,7 +143,7 @@ export function Navbar() {
               ) : (
                 <a
                   key={action.key}
-                  href={action.href}
+                  href={href}
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label={t('nav.instagramAriaLabel')}
@@ -135,8 +151,8 @@ export function Navbar() {
                 >
                   <Instagram className="h-4 w-4" />
                 </a>
-              )
-            )}
+              );
+            })}
           </nav>
 
           <div className="hidden items-center gap-4 lg:flex">
@@ -180,8 +196,12 @@ export function Navbar() {
           )}
         >
           <div className="container-shell grid gap-4 py-8">
-            {navActions.map((action) =>
-              action.type === 'route' ? (
+            {navActions.map((action) => {
+              if (action.type === 'external' && action.key === 'instagram' && !settings?.socials?.instagram && !action.href) return null;
+              
+              const href = action.type === 'external' && action.key === 'instagram' && settings?.socials?.instagram ? settings.socials.instagram : (action as any).href;
+
+              return action.type === 'route' ? (
                 <NavLink
                   key={action.key}
                   to={action.to}
@@ -194,7 +214,7 @@ export function Navbar() {
               ) : (
                 <a
                   key={action.key}
-                  href={action.href}
+                  href={href}
                   target="_blank"
                   rel="noreferrer noopener"
                   onClick={() => setOpen(false)}
@@ -209,7 +229,7 @@ export function Navbar() {
                   <span>{t('nav.instagram')}</span>
                 </a>
               )
-            )}
+            })}
 
             <div className="mt-4 flex flex-col gap-4">
               <button
