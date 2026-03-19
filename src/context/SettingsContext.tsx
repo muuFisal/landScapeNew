@@ -37,8 +37,9 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
         }
       } catch (err: any) {
         if (mounted) {
-          console.error('Failed to load settings:', err);
-          setError(err.message || 'Error fetching settings');
+          const isTimeout = err.status === 408 || err.message?.includes('time');
+          console.warn(`[Settings] Fallback mode active: ${isTimeout ? 'Backend timeout' : 'Backend unreachable or failed'}`);
+          setError(isTimeout ? 'timeout' : 'error');
         }
       } finally {
         if (mounted) {

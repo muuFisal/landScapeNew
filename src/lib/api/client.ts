@@ -105,9 +105,18 @@ async function fetchClient<T>(endpoint: string, options: ApiRequestOptions = {})
     const data = await response.json();
     return data as T;
   } catch (error) {
-    if (error instanceof ApiClientError) {
-      throw error;
+    if (error instanceof ApiClientError) throw error;
+    
+    // Check if it's a native fetch abort/timeout error
+    if (error instanceof DOMException) {
+      if (error.name === 'TimeoutError') {
+        throw new ApiClientError('Request timed out', 408);
+      }
+      if (error.name === 'AbortError') {
+        throw new ApiClientError('Request was aborted', 499);
+      }
     }
+
     throw new ApiClientError(
       error instanceof Error ? error.message : 'Unknown network error'
     );
