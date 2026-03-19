@@ -1,8 +1,12 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import type { Project } from '@/data/projects';
 
-export function ProjectCard({ project, locale, cta }: { project: Project; locale: 'en' | 'ar'; cta: string }) {
+export function ProjectCard({ project, locale, cta }: { project: any; locale: 'en' | 'ar'; cta: string }) {
+  // Gracefully handle both localized object maps (old static) and direct strings (new API)
+  const title = typeof project.title === 'string' ? project.title : project.title?.[locale];
+  const excerpt = project.short_description || (project.excerpt && project.excerpt[locale]);
+  const location = typeof project.location === 'string' ? project.location : project.location?.[locale];
+  const coverImage = project.cover_image || project.cover;
   return (
     <article className="h-full">
       <Link
@@ -11,8 +15,8 @@ export function ProjectCard({ project, locale, cta }: { project: Project; locale
       >
         <div className="overflow-hidden bg-black/5">
           <img
-            src={project.cover}
-            alt={project.title[locale]}
+            src={coverImage}
+            alt={title}
             loading="lazy"
             className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
           />
@@ -20,13 +24,13 @@ export function ProjectCard({ project, locale, cta }: { project: Project; locale
 
         <div className="flex flex-1 flex-col px-5 py-6">
           <div className="flex flex-wrap items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.24em] text-ink-500">
-            <span>{project.location[locale]}</span>
+            <span>{location}</span>
             <span aria-hidden="true">&bull;</span>
             <span>{project.year}</span>
           </div>
 
-          <h3 className="mt-4 text-[1.6rem] font-semibold uppercase leading-tight text-ink-900">{project.title[locale]}</h3>
-          <p className="mt-3 text-sm leading-7 text-ink-500">{project.excerpt[locale]}</p>
+          <h3 className="mt-4 text-[1.6rem] font-semibold uppercase leading-tight text-ink-900">{title}</h3>
+          <p className="mt-3 text-sm leading-7 text-ink-500">{excerpt}</p>
 
           <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-ink-900 transition group-hover:gap-3">
             {cta}
