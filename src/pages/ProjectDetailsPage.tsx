@@ -15,7 +15,7 @@ export function ProjectDetailsPage() {
     return (
       <section className="section-space pt-24 lg:pt-32">
         <div className="container-shell text-center">
-          <h1 className="font-display text-5xl font-semibold">{t('notFound.title')}</h1>
+          <h1 className="font-display text-4xl font-semibold">{t('notFound.title')}</h1>
           <p className="mt-4 text-ink-500">{t('notFound.description')}</p>
           <div className="mt-8 flex justify-center">
             <ButtonLink to="/projects">{t('common.backToProjects')}</ButtonLink>

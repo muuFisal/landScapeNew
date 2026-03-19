@@ -21,7 +21,7 @@ export function MetricsShowcaseSection({ metrics }: { metrics: Metric[] }) {
           <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
             {metrics.map((metric) => (
               <div key={metric.label} className="surface-card p-5 lg:p-6">
-                <div className="font-display text-4xl font-semibold text-ink-900">{metric.value}</div>
+                <div className="font-display text-3xl font-semibold text-ink-900">{metric.value}</div>
                 <p className="mt-2 text-sm text-ink-500">{metric.label}</p>
               </div>
             ))}

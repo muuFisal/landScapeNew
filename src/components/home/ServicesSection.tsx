@@ -23,7 +23,7 @@ export function ServicesSection() {
           <p className="text-[11px] uppercase tracking-[0.36em] text-ink-500">
             {t('home.services.eyebrow')}
           </p>
-          <h2 className="font-display text-4xl font-semibold leading-tight text-ink-900 sm:text-5xl lg:text-[3.5rem]">
+          <h2 className="font-display text-3xl font-semibold leading-tight text-ink-900 sm:text-4xl lg:text-[3rem]">
             {t('home.services.title')}
           </h2>
           <p className="max-w-2xl text-sm leading-7 text-ink-500 sm:text-base sm:leading-8">

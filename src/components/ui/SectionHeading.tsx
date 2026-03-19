@@ -18,7 +18,7 @@ export function SectionHeading({
       {eyebrow ? (
         <p className={cn('mb-4 text-[11px] font-semibold uppercase tracking-[0.32em]', inverse ? 'text-white/60' : 'text-ink-500')}>{eyebrow}</p>
       ) : null}
-      <h2 className={cn('font-display text-4xl font-semibold leading-none text-balance sm:text-5xl lg:text-6xl', inverse ? 'text-white' : 'text-ink-900')}>{title}</h2>
+      <h2 className={cn('font-display text-3xl font-semibold leading-none text-balance sm:text-4xl lg:text-5xl', inverse ? 'text-white' : 'text-ink-900')}>{title}</h2>
       {description ? <p className={cn('mt-4 text-base leading-8', inverse ? 'text-white/82' : 'text-ink-500')}>{description}</p> : null}
     </div>
   );

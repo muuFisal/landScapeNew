@@ -30,7 +30,7 @@ export function GalleryPage() {
           <AnimatedSection animation="scale">
             <div className="max-w-4xl">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-white/60">MDO Landscape</p>
-              <h1 className="mt-5 text-4xl font-semibold uppercase leading-[0.9] sm:text-6xl lg:text-[7.5rem]">
+              <h1 className="mt-5 text-3xl font-semibold uppercase leading-[0.9] sm:text-5xl lg:text-[6.5rem]">
                 {locale === 'ar' ? 'الجالري' : 'Gallery'}
               </h1>
               <p className="mt-8 max-w-2xl text-base leading-8 text-white/82 sm:text-lg">

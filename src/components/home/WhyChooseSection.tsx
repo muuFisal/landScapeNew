@@ -16,7 +16,7 @@ export function WhyChooseSection() {
           className="space-y-6"
         >
           <p className="text-[11px] uppercase tracking-[0.36em] text-white/42">{t('home.whyChoose.eyebrow')}</p>
-          <h2 className="font-display text-4xl font-semibold leading-tight sm:text-5xl lg:text-[3.5rem]">
+          <h2 className="font-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-[3rem]">
             {t('home.whyChoose.title')}
           </h2>
           <p className="max-w-xl text-sm leading-7 text-white/70 sm:text-base sm:leading-8">

@@ -22,7 +22,7 @@ export function GalleryHeroSection() {
               <ImageIcon className="h-4 w-4" />
               {t('galleryPage.eyebrow')}
             </div>
-            <h1 className="font-display text-5xl font-semibold leading-[0.95] text-balance sm:text-6xl lg:text-7xl">
+            <h1 className="font-display text-4xl font-semibold leading-[0.95] text-balance sm:text-5xl lg:text-6xl">
               {t('galleryPage.title')}
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-white/80 sm:text-lg">

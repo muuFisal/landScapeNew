@@ -93,7 +93,7 @@ export function ProjectHeroSlider({
             </div>
           )}
 
-          <h1 className="max-w-4xl font-display text-5xl font-semibold uppercase leading-[0.92] text-balance text-white sm:text-6xl lg:text-[5.5rem]">
+          <h1 className="max-w-4xl font-display text-4xl font-semibold uppercase leading-[0.92] text-balance text-white sm:text-5xl lg:text-[4.5rem]">
             {title}
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">{description}</p>

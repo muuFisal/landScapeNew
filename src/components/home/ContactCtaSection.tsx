@@ -17,7 +17,7 @@ export function ContactCtaSection() {
           className="overflow-hidden rounded-xl bg-ink-900 px-6 py-12 text-surface-base sm:px-10 sm:py-16 lg:px-16 lg:py-20 shadow-soft transition-colors duration-700"
         >
           <p className="text-[11px] font-bold uppercase tracking-[0.4em] text-surface-base/50">{t('home.help.eyebrow')}</p>
-          <h2 className="mt-6 max-w-4xl font-display text-4xl font-semibold leading-tight sm:text-5xl lg:text-[4rem]">
+          <h2 className="mt-6 max-w-4xl font-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-[3.5rem]">
             {t('home.help.title')}
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-surface-base/70 sm:text-lg sm:leading-loose">

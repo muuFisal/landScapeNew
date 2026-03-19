@@ -12,7 +12,7 @@ export function WorkShowcaseSection({ projects, locale }: { projects: Project[];
           <p className="text-[11px] uppercase tracking-[0.36em] text-ink-500">
             {t('home.work.eyebrow')}
           </p>
-          <h2 className="mt-5 font-display text-4xl font-semibold leading-tight text-ink-900 sm:text-5xl lg:text-6xl">
+          <h2 className="mt-5 font-display text-3xl font-semibold leading-tight text-ink-900 sm:text-4xl lg:text-5xl">
             {t('home.work.title')}
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-7 text-ink-500 sm:text-base sm:leading-8">

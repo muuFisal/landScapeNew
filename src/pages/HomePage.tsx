@@ -91,7 +91,7 @@ export function HomePage() {
         <section id="about" className="container-shell grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
           <div>
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-ink-500">MDO Landscape</p>
-            <h2 className="text-4xl font-semibold uppercase leading-tight text-ink-900 sm:text-5xl">{content.aboutTitle}</h2>
+            <h2 className="text-3xl font-semibold uppercase leading-tight text-ink-900 sm:text-4xl">{content.aboutTitle}</h2>
             <p className="mt-6 max-w-2xl text-base leading-8 text-ink-700">{content.aboutBody}</p>
             <Link
               to="/about"
@@ -120,7 +120,7 @@ export function HomePage() {
           <AnimatedSection animation="up">
             <div className="mb-12 max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-ink-500">Portfolio</p>
-              <h2 className="mt-4 text-4xl font-semibold uppercase leading-tight text-ink-900 sm:text-5xl">{content.projectsTitle}</h2>
+              <h2 className="mt-4 text-3xl font-semibold uppercase leading-tight text-ink-900 sm:text-4xl">{content.projectsTitle}</h2>
               <p className="mt-5 text-base leading-8 text-ink-700">{content.projectsBody}</p>
             </div>
           </AnimatedSection>
@@ -159,7 +159,7 @@ export function HomePage() {
         <div className="container-shell grid items-start gap-10 lg:grid-cols-[0.98fr_1.02fr] lg:gap-16">
           <AnimatedSection animation="left">
             <div>
-              <h2 className="text-4xl font-semibold uppercase leading-tight text-ink-900 sm:text-5xl">{content.whyTitle}</h2>
+              <h2 className="text-3xl font-semibold uppercase leading-tight text-ink-900 sm:text-4xl">{content.whyTitle}</h2>
               <p className="mt-10 max-w-2xl text-base leading-8 text-ink-700">{content.whyIntro}</p>
               <div className="mt-10 space-y-10">
                 {content.whyItems.map((item) => (
@@ -186,7 +186,7 @@ export function HomePage() {
           <AnimatedSection animation="center">
             <div className="max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-white/60">MDO Landscape</p>
-              <h2 className="mt-5 text-4xl font-semibold uppercase leading-tight text-white sm:text-5xl lg:text-6xl">{content.finalTitle}</h2>
+              <h2 className="mt-5 text-3xl font-semibold uppercase leading-tight text-white sm:text-4xl lg:text-5xl">{content.finalTitle}</h2>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/82">{content.finalBody}</p>
               <Link
                 to="/contact"

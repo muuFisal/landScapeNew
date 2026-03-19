@@ -26,7 +26,7 @@ export function HeroSection() {
         >
           <h1
             className={cn(
-              'mx-auto max-w-5xl text-center text-5xl font-semibold leading-[0.95] text-balance text-white sm:text-7xl lg:text-[7.5rem]',
+              'mx-auto max-w-5xl text-center text-4xl font-semibold leading-[0.95] text-balance text-white sm:text-6xl lg:text-[6.5rem]',
               !isArabic && 'uppercase'
             )}
           >

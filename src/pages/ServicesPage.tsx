@@ -27,7 +27,7 @@ export function ServicesPage() {
           <AnimatedSection animation="down">
             <div className="max-w-4xl">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-white/60">{t('servicesPage.eyebrow')}</p>
-              <h1 className="mt-5 text-4xl font-semibold uppercase leading-[0.9] sm:text-6xl lg:text-[7.5rem]">{t('servicesPage.title')}</h1>
+              <h1 className="mt-5 text-3xl font-semibold uppercase leading-[0.9] sm:text-5xl lg:text-[6.5rem]">{t('servicesPage.title')}</h1>
               <p className="mt-8 max-w-2xl text-base leading-8 text-white/82 sm:text-lg">{t('servicesPage.description')}</p>
             </div>
           </AnimatedSection>
@@ -63,7 +63,7 @@ export function ServicesPage() {
 
                     <div className={cn('flex h-full flex-col justify-center p-6 sm:p-8 lg:p-10', index % 2 === 1 && 'lg:order-1')}>
                       <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-ink-500">0{index + 1}</p>
-                      <h2 className="text-4xl font-semibold uppercase leading-tight text-ink-900 sm:text-5xl">{title}</h2>
+                      <h2 className="text-3xl font-semibold uppercase leading-tight text-ink-900 sm:text-4xl">{title}</h2>
                       <p className="mt-5 text-lg leading-8 text-ink-700">{short}</p>
                       <p className="mt-5 text-base leading-8 text-ink-600">{description}</p>
 

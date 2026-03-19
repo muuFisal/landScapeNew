@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="border-t border-black/5 bg-surface-muted py-20 text-ink-700 transition-colors duration-500 dark:border-white/5">
       <div className="container-shell grid gap-16 lg:grid-cols-[1.2fr_1fr_1.4fr]">
         <div className="space-y-8">
-          <h3 className="font-display text-4xl font-semibold tracking-[0.16em] text-ink-900">MDO</h3>
+          <h3 className="font-display text-3xl font-semibold tracking-[0.16em] text-ink-900">MDO</h3>
           <p className="max-w-md text-base leading-relaxed text-ink-500">{t('footer.description')}</p>
         </div>
         <div>

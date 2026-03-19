@@ -74,6 +74,16 @@ public/
 - Images and project content are demo placeholders and can be swapped easily.
 - All primary text content is wired through translation JSON files for easier localization.
 
+## 📡 API Integration Prep
+
+The application includes a centralized API layer ready for future backend integration. 
+
+- **Location:** The API client is located at `src/lib/api/client.ts`. It exports `apiClient` which has methods like `apiClient.get()`, `apiClient.post()`.
+- **Base URL:** It dynamically reads `VITE_API_BASE_URL` from the environment (`.env` or `.env.example`).
+- **Headers:** 
+  - It automatically applies `Accept: application/json` to all requests.
+  - It automatically determines the application's current language (`i18n.language`) and dynamically applies an `Accept-Language` header to ensure consistent localization between frontend and backend. 
+
 ---
 
 ## 👨‍💻 Developed By

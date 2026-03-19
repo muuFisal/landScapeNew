@@ -33,7 +33,7 @@ export function ContactPage() {
             </div>
           </div>
           <div id="form" className="surface-card scroll-mt-28 p-6 sm:p-8">
-            <h2 className="font-display text-4xl font-semibold text-ink-900">{t('contact.formTitle')}</h2>
+            <h2 className="font-display text-3xl font-semibold text-ink-900">{t('contact.formTitle')}</h2>
             <form className="mt-6 grid gap-4">
               {[
                 { label: t('contact.form.name'), type: 'text' },

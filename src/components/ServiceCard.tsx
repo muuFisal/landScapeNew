@@ -21,7 +21,7 @@ export function ServiceCard({
           {stat}
         </span>
       </div>
-      <h3 className="mt-7 font-display text-4xl font-semibold text-ink-900">{title}</h3>
+      <h3 className="mt-7 font-display text-3xl font-semibold text-ink-900">{title}</h3>
       <p className="mt-4 text-sm leading-7 text-ink-500">{body}</p>
     </article>
   );
