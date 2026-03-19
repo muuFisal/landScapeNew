@@ -3,6 +3,7 @@ import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { Seo } from '@/components/ui/Seo';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { cn } from '@/utils/cn';
+import { useAbout } from '@/hooks/useAbout';
 
 type AboutValue = {
   title: string;
@@ -80,14 +81,13 @@ function DirectionStoryCard({
             {card.title}
           </h2>
 
-          <p
+          <div
             className={cn(
-              'mt-4 text-sm leading-7 text-white/88 sm:text-[0.98rem] sm:leading-7 lg:text-base lg:leading-8',
+              'mt-4 text-sm leading-7 text-white/88 sm:text-[0.98rem] sm:leading-7 lg:text-base lg:leading-8 space-y-4 [&>p]:mb-2',
               isArabic ? 'max-w-[35ch]' : 'max-w-[33ch]'
             )}
-          >
-            {card.description}
-          </p>
+            dangerouslySetInnerHTML={{ __html: card.description }}
+          />
         </div>
       </div>
     </article>
@@ -97,25 +97,32 @@ function DirectionStoryCard({
 export function AboutPage() {
   const { t, i18n } = useTranslation();
   const isArabic = i18n.language === 'ar';
-  const values = t('about.values', { returnObjects: true }) as AboutValue[];
+  const { data, loading } = useAbout();
+
+  const valuesFallback = t('about.values', { returnObjects: true }) as AboutValue[];
+  const values = data?.what_shapes_the_work?.items?.map(item => ({
+      title: isArabic ? item.title.ar : item.title.en,
+      body: isArabic ? item.description.ar : item.description.en,
+  })) || valuesFallback;
+
   const directionCards: AboutDirectionCard[] = [
     {
       key: 'mission',
-      eyebrow: t('about.missionEyebrow'),
-      title: t('about.missionTitle'),
-      description: t('about.missionDescription'),
-      image: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&q=80',
-      alt: t('about.media.missionAlt'),
+      eyebrow: data?.mission?.badge || t('about.missionEyebrow'),
+      title: data?.mission?.title || t('about.missionTitle'),
+      description: data?.mission?.description || t('about.missionDescription'),
+      image: data?.mission?.image || 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1600&q=80',
+      alt: data?.mission?.title || t('about.media.missionAlt'),
       animation: 'left',
       imagePositionClassName: 'object-[center_58%]',
     },
     {
       key: 'vision',
-      eyebrow: t('about.visionEyebrow'),
-      title: t('about.visionTitle'),
-      description: t('about.visionDescription'),
-      image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80',
-      alt: t('about.media.visionAlt'),
+      eyebrow: data?.vision?.badge || t('about.visionEyebrow'),
+      title: data?.vision?.title || t('about.visionTitle'),
+      description: data?.vision?.description || t('about.visionDescription'),
+      image: data?.vision?.image || 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80',
+      alt: data?.vision?.title || t('about.media.visionAlt'),
       animation: 'right',
       imagePositionClassName: 'object-[center_54%]',
     },
@@ -128,14 +135,25 @@ export function AboutPage() {
       <AnimatedSection className="section-space pt-24 lg:pt-32" animation="left">
         <div className="container-shell grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-16">
           <div>
-            <SectionHeading eyebrow={t('about.eyebrow')} title={t('about.title')} description={t('about.description')} />
-            <p className="max-w-2xl text-base leading-8 text-ink-500">{t('about.story')}</p>
+            <SectionHeading 
+              eyebrow={data?.about?.badge || t('about.eyebrow')} 
+              title={data?.about?.title || t('about.title')} 
+              description={loading ? t('about.description') : ''} // Clearing SectionHeading desc if using API for rich body
+            />
+            {data?.about?.description ? (
+              <div 
+                 className="max-w-2xl text-base leading-8 text-ink-500 mt-2 space-y-4 [&>p]:mb-4"
+                 dangerouslySetInnerHTML={{ __html: data.about.description }} 
+              />
+            ) : (
+              <p className="max-w-2xl text-base leading-8 text-ink-500">{t('about.story')}</p>
+            )}
           </div>
 
           <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-surface-strong shadow-card dark:border-white/10">
             <img
-              src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80"
-              alt={t('about.media.introAlt')}
+              src={data?.about?.image || "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80"}
+              alt={data?.about?.title || t('about.media.introAlt')}
               className="aspect-[5/6] w-full object-cover object-[center_58%] sm:aspect-[4/3] lg:aspect-[5/6]"
             />
           </div>
@@ -154,7 +172,17 @@ export function AboutPage() {
 
       <AnimatedSection className="section-space bg-surface-muted/70" animation="right">
         <div className="container-shell">
-          <SectionHeading eyebrow={t('about.valuesEyebrow')} title={t('about.valuesTitle')} description={t('about.valuesDescription')} />
+          <SectionHeading 
+            eyebrow={data?.what_shapes_the_work?.badge || t('about.valuesEyebrow')} 
+            title={data?.what_shapes_the_work?.title || t('about.valuesTitle')} 
+            description={t('about.valuesDescription')} 
+          />
+          {data?.what_shapes_the_work?.description && (
+             <div 
+               className="mb-10 max-w-3xl text-sm leading-7 text-ink-600 sm:text-base space-y-4"
+               dangerouslySetInnerHTML={{ __html: data.what_shapes_the_work.description }}
+             />
+          )}
           <div className="grid gap-6 lg:grid-cols-3">
             {values.map((item) => (
               <article key={item.title} className="surface-card p-6">

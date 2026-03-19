@@ -8,6 +8,7 @@ import { ContactCtaSection } from '@/components/home/ContactCtaSection';
 import { HeroSection } from '@/components/home/HeroSection';
 import { HomeServicesSection } from '@/components/home/HomeServicesSection';
 import { projects } from '@/data/projects';
+import { useAbout } from '@/hooks/useAbout';
 
 const homeContent = {
   en: {
@@ -80,6 +81,7 @@ export function HomePage() {
   const { i18n, t } = useTranslation();
   const locale = i18n.language === 'ar' ? 'ar' : 'en';
   const content = homeContent[locale];
+  const { data: aboutData } = useAbout();
 
   return (
     <>
@@ -90,9 +92,20 @@ export function HomePage() {
       <AnimatedSection animation="left" className="section-space bg-surface-muted">
         <section id="about" className="container-shell grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
           <div>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-ink-500">MDO Landscape</p>
-            <h2 className="text-3xl font-semibold uppercase leading-tight text-ink-900 sm:text-4xl">{content.aboutTitle}</h2>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-ink-700">{content.aboutBody}</p>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-ink-500">
+              {aboutData?.about?.badge || 'MDO Landscape'}
+            </p>
+            <h2 className="text-3xl font-semibold uppercase leading-tight text-ink-900 sm:text-4xl">
+              {aboutData?.about?.title || content.aboutTitle}
+            </h2>
+            {aboutData?.about?.description ? (
+              <div 
+                className="mt-6 max-w-2xl text-base leading-8 text-ink-700 space-y-4"
+                dangerouslySetInnerHTML={{ __html: aboutData.about.description }} 
+              />
+            ) : (
+              <p className="mt-6 max-w-2xl text-base leading-8 text-ink-700">{content.aboutBody}</p>
+            )}
             <Link
               to="/about"
               className="mt-8 inline-flex items-center gap-3 rounded-full border border-ink-900 px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-ink-900 transition hover:bg-ink-900 hover:text-white"
@@ -108,7 +121,11 @@ export function HomePage() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80" alt="About MDO Landscape" className="aspect-[4/3] w-full object-cover" />
+            <img 
+              src={aboutData?.about?.image || "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80"} 
+              alt={aboutData?.about?.title || "About MDO Landscape"} 
+              className="aspect-[4/3] w-full object-cover" 
+            />
           </motion.div>
         </section>
       </AnimatedSection>
