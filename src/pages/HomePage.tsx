@@ -1,4 +1,4 @@
-import { ArrowRight, MoveRight } from 'lucide-react';
+import { ArrowRight, MoveRight, Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -7,7 +7,7 @@ import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { ContactCtaSection } from '@/components/home/ContactCtaSection';
 import { HeroSection } from '@/components/home/HeroSection';
 import { HomeServicesSection } from '@/components/home/HomeServicesSection';
-import { projects } from '@/data/projects';
+import { useProjectsList } from '@/hooks/useProjects';
 import { useAbout } from '@/hooks/useAbout';
 import { useWhyChoose, useRequestService } from '@/hooks/useHomeSections';
 
@@ -85,6 +85,7 @@ export function HomePage() {
   const { data: aboutData } = useAbout();
   const { data: whyChooseData } = useWhyChoose();
   const { data: requestServiceData } = useRequestService();
+  const { projects: homeProjects, loading: projectsLoading } = useProjectsList({ page: 1, per_page: 10 });
 
   return (
     <>
@@ -145,33 +146,59 @@ export function HomePage() {
             </div>
           </AnimatedSection>
 
-          <div className="grid gap-x-10 gap-y-14 lg:grid-cols-2">
-            {projects.map((project, index) => (
-              <AnimatedSection key={project.slug} animation={index % 2 === 0 ? 'left' : 'right'}>
-                <article className="group">
-                  <Link to={`/projects/${project.slug}`} className="block overflow-hidden bg-black/5">
-                    <img
-                      src={project.cover}
-                      alt={project.title[locale]}
-                      className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
-                    />
-                  </Link>
-                  <div className="mt-5 flex items-center justify-between gap-4">
-                    <h3 className="text-[1.6rem] font-semibold uppercase leading-tight text-ink-900 sm:text-[2rem]">
-                      {project.title[locale]}
-                    </h3>
-                    <Link
-                      to={`/projects/${project.slug}`}
-                      className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-ink-700 transition hover:text-ink-900"
-                    >
-                      {content.projectButton}
-                      <MoveRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-                </article>
-              </AnimatedSection>
-            ))}
-          </div>
+          {projectsLoading ? (
+            <div className="flex min-h-[400px] w-full items-center justify-center">
+              <Loader2 className="h-8 w-8 animate-spin text-ink-300" />
+            </div>
+          ) : homeProjects.length > 0 ? (
+            <>
+              <div className="grid gap-x-10 gap-y-14 lg:grid-cols-2">
+                {homeProjects.map((project, index) => {
+                  const title = typeof project.title === 'string' ? project.title : (project.title as any)?.[locale];
+                  const coverImage = project.cover_image || (project as any).cover;
+
+                  return (
+                    <AnimatedSection key={project.slug} animation={index % 2 === 0 ? 'left' : 'right'}>
+                      <article className="group">
+                        <Link to={`/projects/${project.slug}`} className="block overflow-hidden bg-black/5 rounded-[var(--radius-lg)] shadow-sm transition hover:shadow-card">
+                          <img
+                            src={coverImage}
+                            alt={title}
+                            className="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                          />
+                        </Link>
+                        <div className="mt-5 flex items-center justify-between gap-4">
+                          <h3 className="text-[1.6rem] font-semibold uppercase leading-tight text-ink-900 sm:text-[2rem]">
+                            {title}
+                          </h3>
+                          <Link
+                            to={`/projects/${project.slug}`}
+                            className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-ink-700 transition hover:text-ink-900"
+                          >
+                            {content.projectButton}
+                            <MoveRight className="h-4 w-4" />
+                          </Link>
+                        </div>
+                      </article>
+                    </AnimatedSection>
+                  );
+                })}
+              </div>
+              
+              <div className="mt-14 flex justify-center">
+                <Link
+                  to="/projects"
+                  className="rounded-full border border-ink-900 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-ink-900 transition hover:bg-ink-900 hover:text-white"
+                >
+                  {t('common.viewAllProjects', 'View All Projects')}
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div className="flex h-32 w-full flex-col items-center justify-center text-center">
+              <p className="text-lg text-ink-500">{t('projects.emptyDescription', 'No projects found.')}</p>
+            </div>
+          )}
         </div>
       </section>
 
