@@ -1,13 +1,20 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Loader2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
-import { getProjectsPath, services } from '@/data/services';
+import { getProjectsPath } from '@/data/services';
 import { cn } from '@/utils/cn';
+import { useServices } from '@/hooks/useServices';
+
+const stripHtml = (html: string) => {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  return doc.body.textContent || "";
+};
 
 export function HomeServicesSection() {
   const { i18n, t } = useTranslation();
   const locale = i18n.language === 'ar' ? 'ar' : 'en';
+  const { services, loading } = useServices();
 
   return (
     <section id="services" className="section-space bg-surface-muted">
@@ -20,40 +27,56 @@ export function HomeServicesSection() {
           </div>
         </AnimatedSection>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {services.map((service, index) => {
-            const title = t(`servicesData.${service.slug}.title`);
-            const short = t(`servicesData.${service.slug}.short`);
+        {loading ? (
+          <div className="flex h-64 w-full items-center justify-center">
+            <Loader2 className="h-8 w-8 animate-spin text-ink-300" />
+          </div>
+        ) : services.length > 0 ? (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {services.map((service, index) => {
+              const title = service.title || t(`servicesData.${service.slug}.title`);
+              const description = service.description || t(`servicesData.${service.slug}.short`);
+              const shortPreview = stripHtml(description);
 
-            return (
-              <AnimatedSection key={service.slug} animation="up" delay={index * 0.12} className="h-full">
-                <Link
-                  to={getProjectsPath(service.slug)}
-                  className="group relative flex h-full min-h-[440px] flex-col overflow-hidden rounded-xl border border-black/5 bg-surface-strong shadow-sm outline-none transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl focus-visible:ring-2 focus-visible:ring-brand-900/35 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base dark:border-white/5"
-                >
-                  <div className="absolute inset-0 z-0">
-                    <img
-                      src={service.image}
-                      alt={title}
-                      className={cn('h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110', service.imagePositionClassName)}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-85" />
-                  </div>
-
-                  <div className="relative z-10 mt-auto flex flex-col p-8">
-                    <div className="mb-4 h-px w-12 bg-white/30 transition-all duration-700 group-hover:w-full group-hover:bg-white/50" />
-                    <h3 className="text-3xl font-semibold uppercase tracking-tight text-white">{title}</h3>
-                    <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-white/74 transition-colors duration-700 group-hover:text-white/90">{short}</p>
-                    <div className="mt-8 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-white">
-                      <span>{t('common.viewProjects')}</span>
-                      <ArrowRight className={cn('h-4 w-4 transition-transform duration-700', locale === 'ar' ? 'group-hover:-translate-x-2' : 'group-hover:translate-x-2')} />
+              return (
+                <AnimatedSection key={`${service.slug}-${index}`} animation="up" delay={index * 0.12} className="h-full">
+                  <Link
+                    to={getProjectsPath(service.slug as any)}
+                    className="group relative flex h-full min-h-[440px] flex-col overflow-hidden rounded-xl border border-black/5 bg-surface-strong shadow-sm outline-none transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl focus-visible:ring-2 focus-visible:ring-brand-900/35 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-base dark:border-white/5"
+                  >
+                    <div className="absolute inset-0 z-0">
+                      <img
+                        src={service.image}
+                        alt={title}
+                        className={cn('h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110')}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-85" />
                     </div>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            );
-          })}
-        </div>
+
+                    <div className="relative z-10 mt-auto flex flex-col p-8">
+                      <div className="mb-4 h-px w-12 bg-white/30 transition-all duration-700 group-hover:w-full group-hover:bg-white/50" />
+                      <h3 className="text-3xl font-semibold uppercase tracking-tight text-white">{title}</h3>
+                      <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-white/74 transition-colors duration-700 group-hover:text-white/90">
+                        {shortPreview}
+                      </p>
+                      
+                      {service.show_in_projects_filter && (
+                        <div className="mt-8 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-white">
+                          <span>{t('common.viewProjects')}</span>
+                          <ArrowRight className={cn('h-4 w-4 transition-transform duration-700', locale === 'ar' ? 'group-hover:-translate-x-2' : 'group-hover:translate-x-2')} />
+                        </div>
+                      )}
+                    </div>
+                  </Link>
+                </AnimatedSection>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="flex h-64 w-full flex-col items-center justify-center text-center">
+            <p className="text-lg text-ink-500">{locale === 'ar' ? 'لا توجد عناصر لعرضها.' : 'No items to display.'}</p>
+          </div>
+        )}
 
         <AnimatedSection animation="up" className="mt-16 text-center lg:mt-20">
           <Link
