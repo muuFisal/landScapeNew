@@ -234,7 +234,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <ContactCtaSection data={requestServiceData} />
+      {/* <ContactCtaSection data={requestServiceData} /> */}
 
       <section className="relative isolate overflow-hidden bg-black text-white">
         <img 
