@@ -9,6 +9,7 @@ import { HeroSection } from '@/components/home/HeroSection';
 import { HomeServicesSection } from '@/components/home/HomeServicesSection';
 import { projects } from '@/data/projects';
 import { useAbout } from '@/hooks/useAbout';
+import { useWhyChoose, useRequestService } from '@/hooks/useHomeSections';
 
 const homeContent = {
   en: {
@@ -82,6 +83,8 @@ export function HomePage() {
   const locale = i18n.language === 'ar' ? 'ar' : 'en';
   const content = homeContent[locale];
   const { data: aboutData } = useAbout();
+  const { data: whyChooseData } = useWhyChoose();
+  const { data: requestServiceData } = useRequestService();
 
   return (
     <>
@@ -176,40 +179,60 @@ export function HomePage() {
         <div className="container-shell grid items-start gap-10 lg:grid-cols-[0.98fr_1.02fr] lg:gap-16">
           <AnimatedSection animation="left">
             <div>
-              <h2 className="text-3xl font-semibold uppercase leading-tight text-ink-900 sm:text-4xl">{content.whyTitle}</h2>
-              <p className="mt-10 max-w-2xl text-base leading-8 text-ink-700">{content.whyIntro}</p>
+              <h2 className="text-3xl font-semibold uppercase leading-tight text-ink-900 sm:text-4xl">
+                {whyChooseData?.title || content.whyTitle}
+              </h2>
+              <p className="mt-10 max-w-2xl text-base leading-8 text-ink-700">
+                {whyChooseData?.description || content.whyIntro}
+              </p>
               <div className="mt-10 space-y-10">
-                {content.whyItems.map((item) => (
+                {(whyChooseData?.items || content.whyItems).map((item) => (
                   <div key={item.title}>
                     <h3 className="text-[1.6rem] font-semibold uppercase leading-tight text-ink-900">{item.title}</h3>
-                    <p className="mt-5 max-w-2xl text-base leading-8 text-ink-700">{item.body}</p>
+                    <p className="mt-5 max-w-2xl text-base leading-8 text-ink-700">
+                      {("body" in item) ? item.body : item.description}
+                    </p>
                   </div>
                 ))}
               </div>
             </div>
           </AnimatedSection>
           <AnimatedSection animation="right">
-            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80" alt="Why choose us" className="aspect-[4/3] w-full object-cover" />
+            <img 
+              src={whyChooseData?.image || "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80"} 
+              alt={whyChooseData?.title || "Why choose us"} 
+              className="aspect-[4/3] w-full object-cover" 
+            />
           </AnimatedSection>
         </div>
       </section>
 
-      <ContactCtaSection />
+      <ContactCtaSection data={requestServiceData} />
 
       <section className="relative isolate overflow-hidden bg-black text-white">
-        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=80" alt="Luxury landscape footer background" className="absolute inset-0 h-full w-full object-cover opacity-45" />
+        <img 
+          src={requestServiceData?.image || "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=80"} 
+          alt={requestServiceData?.title || "Luxury landscape footer background"} 
+          className="absolute inset-0 h-full w-full object-cover opacity-45" 
+        />
         <div className="absolute inset-0 bg-black/55" />
         <div className="container-shell relative py-24 sm:py-28 lg:py-32">
           <AnimatedSection animation="center">
             <div className="max-w-3xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-white/60">MDO Landscape</p>
-              <h2 className="mt-5 text-3xl font-semibold uppercase leading-tight text-white sm:text-4xl lg:text-5xl">{content.finalTitle}</h2>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-white/82">{content.finalBody}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-white/60">
+                {requestServiceData?.small_label || 'MDO Landscape'}
+              </p>
+              <h2 className="mt-5 text-3xl font-semibold uppercase leading-tight text-white sm:text-4xl lg:text-5xl">
+                {requestServiceData?.title || content.finalTitle}
+              </h2>
+              <p className="mt-6 max-w-2xl text-base leading-8 text-white/82">
+                {requestServiceData?.description || content.finalBody}
+              </p>
               <Link
                 to="/contact"
                 className="mt-8 inline-flex items-center gap-3 rounded-full border border-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-white transition hover:bg-white hover:text-black"
               >
-                {content.finalButton}
+                {requestServiceData?.button_text || content.finalButton}
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

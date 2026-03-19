@@ -2,8 +2,9 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { ButtonLink } from '@/components/ui/Button';
+import type { RequestServiceData } from '@/types/home-sections';
 
-export function ContactCtaSection() {
+export function ContactCtaSection({ data }: { data?: RequestServiceData | null }) {
   const { t } = useTranslation();
 
   return (
@@ -16,16 +17,18 @@ export function ContactCtaSection() {
           transition={{ duration: 0.8 }}
           className="overflow-hidden rounded-xl bg-ink-900 px-6 py-12 text-surface-base sm:px-10 sm:py-16 lg:px-16 lg:py-20 shadow-soft transition-colors duration-700"
         >
-          <p className="text-[11px] font-bold uppercase tracking-[0.4em] text-surface-base/50">{t('home.help.eyebrow')}</p>
+          <p className="text-[11px] font-bold uppercase tracking-[0.4em] text-surface-base/50">
+            {data?.small_label || t('home.help.eyebrow')}
+          </p>
           <h2 className="mt-6 max-w-4xl font-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-[3.5rem]">
-            {t('home.help.title')}
+            {data?.title || t('home.help.title')}
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-surface-base/70 sm:text-lg sm:leading-loose">
-            {t('home.help.description')}
+            {data?.description || t('home.help.description')}
           </p>
           <div className="mt-10">
             <ButtonLink to="/contact" className="bg-surface-base text-ink-900 hover:scale-105 active:scale-95 transition-all">
-              {t('home.help.button')}
+              {data?.button_text || t('home.help.button')}
               <ArrowRight className="h-4 w-4" />
             </ButtonLink>
           </div>

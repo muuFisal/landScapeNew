@@ -3,11 +3,14 @@ import { Seo } from '@/components/ui/Seo';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Accordion } from '@/components/ui/Accordion';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
+import { useFaq } from '@/hooks/useFaq';
 
 export function FaqPage() {
   const { t } = useTranslation();
+  const { items, loading } = useFaq();
 
-  const faqItems = t('faq.items', { returnObjects: true }) as { question: string; answer: string }[];
+  const faqItemsFallback = t('faq.items', { returnObjects: true }) as { question: string; answer: string }[];
+  const displayedItems = items.length > 0 ? items : (loading ? [] : faqItemsFallback);
 
   return (
     <>
@@ -28,7 +31,15 @@ export function FaqPage() {
           </AnimatedSection>
           
           <AnimatedSection animation="up" className="mt-12">
-            <Accordion items={faqItems} />
+            {loading && displayedItems.length === 0 ? (
+              <div className="animate-pulse space-y-4">
+                {[...Array(4)].map((_, i) => (
+                  <div key={i} className="h-16 w-full rounded-2xl bg-surface-muted dark:bg-white/5" />
+                ))}
+              </div>
+            ) : (
+              <Accordion items={displayedItems} />
+            )}
           </AnimatedSection>
         </div>
       </section>
