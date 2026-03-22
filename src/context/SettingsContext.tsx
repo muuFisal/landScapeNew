@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { SettingsData } from '@/types/settings';
 import { getSettings } from '@/lib/api/endpoints/settings';
 
@@ -17,6 +18,7 @@ const SettingsContext = createContext<SettingsContextType>({
 export const useSettings = () => useContext(SettingsContext);
 
 export const SettingsProvider = ({ children }: { children: ReactNode }) => {
+  const { i18n } = useTranslation();
   const [settings, setSettings] = useState<SettingsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -26,6 +28,7 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
 
     const fetchSettings = async () => {
       try {
+        setLoading(true);
         const response = await getSettings();
         if (mounted && response?.data) {
           const data = response.data;
@@ -53,7 +56,7 @@ export const SettingsProvider = ({ children }: { children: ReactNode }) => {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [i18n.language]);
 
   return (
     <SettingsContext.Provider value={{ settings, loading, error }}>

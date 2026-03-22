@@ -136,6 +136,15 @@ export function ContactPage() {
                 />
               </label>
               <label className="grid gap-2 text-sm font-medium text-ink-700">
+                {t('contact.form.subject')}
+                <input 
+                  type="text" 
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  className="rounded-md border border-black/5 bg-surface-base px-4 py-3 outline-none transition focus:border-brand-400 dark:border-white/10" 
+                />
+              </label>
+              <label className="grid gap-2 text-sm font-medium text-ink-700">
                 {t('contact.form.message')}
                 <textarea 
                   rows={5} 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   getWorkPageContent, 
   getProjectsList, 
@@ -13,6 +14,7 @@ import type {
 } from '@/types/projects';
 
 export function useWorkPage() {
+  const { i18n } = useTranslation();
   const [data, setData] = useState<WorkPageData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -21,6 +23,7 @@ export function useWorkPage() {
     let mounted = true;
     const fetchContent = async () => {
       try {
+        setLoading(true);
         const response = await getWorkPageContent();
         if (mounted && response?.data) setData(response.data);
       } catch (err: any) {
@@ -31,12 +34,13 @@ export function useWorkPage() {
     };
     fetchContent();
     return () => { mounted = false; };
-  }, []);
+  }, [i18n.language]);
 
   return { data, loading, error };
 }
 
 export function useProjectsList(params: { page: number; per_page: number; service?: string }) {
+  const { i18n } = useTranslation();
   const [projects, setProjects] = useState<ProjectListItem[]>([]);
   const [pagination, setPagination] = useState<ProjectsPagination | null>(null);
   const [loading, setLoading] = useState(true);
@@ -63,12 +67,13 @@ export function useProjectsList(params: { page: number; per_page: number; servic
     };
     fetchContent();
     return () => { mounted = false; };
-  }, [params.page, params.per_page, params.service]);
+  }, [params.page, params.per_page, params.service, i18n.language]);
 
   return { projects, pagination, loading, error };
 }
 
 export function useProjectDetails(slug: string | undefined) {
+  const { i18n } = useTranslation();
   const [project, setProject] = useState<ProjectDetailsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -98,12 +103,13 @@ export function useProjectDetails(slug: string | undefined) {
     };
     fetchContent();
     return () => { mounted = false; };
-  }, [slug]);
+  }, [slug, i18n.language]);
 
   return { project, loading, error };
 }
 
 export function useRelatedProjects(slug: string | undefined) {
+  const { i18n } = useTranslation();
   const [related, setRelated] = useState<ProjectListItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -130,7 +136,7 @@ export function useRelatedProjects(slug: string | undefined) {
     };
     fetchContent();
     return () => { mounted = false; };
-  }, [slug]);
+  }, [slug, i18n.language]);
 
   return { related, loading, error };
 }

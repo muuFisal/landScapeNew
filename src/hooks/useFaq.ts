@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getFaqContent } from '@/lib/api/endpoints/faq';
 import type { FaqItem, FaqPagination } from '@/types/faq';
 
 export function useFaq(page: number = 1) {
+  const { i18n } = useTranslation();
   const [items, setItems] = useState<FaqItem[]>([]);
   const [pagination, setPagination] = useState<FaqPagination | null>(null);
   const [loading, setLoading] = useState(true);
@@ -26,7 +28,7 @@ export function useFaq(page: number = 1) {
     };
     fetchContent();
     return () => { mounted = false; };
-  }, [page]);
+  }, [page, i18n.language]);
 
   return { items, pagination, loading, error };
 }

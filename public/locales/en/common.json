@@ -310,6 +310,7 @@
       "name": "Full name",
       "phone": "Phone number",
       "email": "Email address",
+      "subject": "Subject",
       "message": "Project details",
       "submit": "Send request"
     }

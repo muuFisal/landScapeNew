@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getGalleryPageContent, getGalleryItemsContent } from '@/lib/api/endpoints/gallery';
 import type { GalleryPageData, GalleryItem, GalleryPagination } from '@/types/gallery';
 
 export function useGalleryPage() {
+  const { i18n } = useTranslation();
   const [data, setData] = useState<GalleryPageData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -11,6 +13,7 @@ export function useGalleryPage() {
     let mounted = true;
     const fetchContent = async () => {
       try {
+        setLoading(true);
         const response = await getGalleryPageContent();
         if (mounted && response?.data) setData(response.data);
       } catch (err: any) {
@@ -21,12 +24,13 @@ export function useGalleryPage() {
     };
     fetchContent();
     return () => { mounted = false; };
-  }, []);
+  }, [i18n.language]);
 
   return { data, loading, error };
 }
 
 export function useGalleryItems(page: number = 1, per_page: number = 12) {
+  const { i18n } = useTranslation();
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [pagination, setPagination] = useState<GalleryPagination | null>(null);
   const [loading, setLoading] = useState(true);
@@ -51,7 +55,7 @@ export function useGalleryItems(page: number = 1, per_page: number = 12) {
     };
     fetchContent();
     return () => { mounted = false; };
-  }, [page, per_page]);
+  }, [page, per_page, i18n.language]);
 
   return { items, pagination, loading, error };
 }
