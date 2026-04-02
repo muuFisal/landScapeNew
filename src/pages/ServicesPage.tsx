@@ -30,7 +30,7 @@ export function ServicesPage() {
         <div className="container-shell relative py-32 pt-40 sm:py-36 sm:pt-48 lg:py-40 lg:pt-56">
           <AnimatedSection animation="down">
             <div className="max-w-4xl">
-              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-white/60">{t('servicesPage.eyebrow')}</p>
+              {/* <p className="text-xs font-semibold uppercase tracking-[0.34em] text-white/60">{t('servicesPage.eyebrow')}</p> */}
               <h1 className="mt-5 text-3xl font-semibold uppercase leading-[0.9] sm:text-5xl lg:text-[6.5rem]">
                 {pageData?.title || t('servicesPage.title')}
               </h1>
@@ -116,7 +116,7 @@ export function ServicesPage() {
             })
           ) : (
             <div className="flex h-64 w-full flex-col items-center justify-center text-center">
-               <p className="text-lg text-ink-500">{locale === 'ar' ? 'لا توجد عناصر لعرضها.' : 'No items to display.'}</p>
+              <p className="text-lg text-ink-500">{locale === 'ar' ? 'لا توجد عناصر لعرضها.' : 'No items to display.'}</p>
             </div>
           )}
 

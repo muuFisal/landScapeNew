@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { AnimatedSection } from '@/components/ui/AnimatedSection';
 import { getProjectsPath } from '@/data/services';
 import { cn } from '@/utils/cn';
-import { useServices } from '@/hooks/useServices';
+import { useServices, useServicesPage } from '@/hooks/useServices';
 
 const stripHtml = (html: string) => {
   const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -15,6 +15,7 @@ export function HomeServicesSection() {
   const { i18n, t } = useTranslation();
   const locale = i18n.language === 'ar' ? 'ar' : 'en';
   const { services, loading } = useServices();
+  const { data: pageData } = useServicesPage();
 
   return (
     <section id="services" className="section-space bg-surface-muted">
@@ -22,8 +23,12 @@ export function HomeServicesSection() {
         <AnimatedSection animation="up">
           <div className="mb-16 max-w-3xl">
             <p className="text-xs font-semibold uppercase tracking-[0.34em] text-ink-500">{t('home.services.eyebrow')}</p>
-            <h2 className="mt-4 text-3xl font-semibold uppercase leading-tight text-ink-900 sm:text-4xl lg:text-5xl">{t('home.services.title')}</h2>
-            <p className="mt-6 text-lg leading-8 text-ink-700">{t('home.services.description')}</p>
+            <h2 className="mt-4 text-3xl font-semibold uppercase leading-tight text-ink-900 sm:text-4xl lg:text-5xl">
+              {pageData?.title || t('home.services.title')}
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-ink-700">
+              {pageData?.description || t('home.services.description')}
+            </p>
           </div>
         </AnimatedSection>
 

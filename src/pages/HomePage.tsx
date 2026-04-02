@@ -103,9 +103,9 @@ export function HomePage() {
               {aboutData?.about?.title || content.aboutTitle}
             </h2>
             {aboutData?.about?.description ? (
-              <div 
+              <div
                 className="mt-6 max-w-2xl text-base leading-8 text-ink-700 space-y-4"
-                dangerouslySetInnerHTML={{ __html: aboutData.about.description }} 
+                dangerouslySetInnerHTML={{ __html: aboutData.about.description }}
               />
             ) : (
               <p className="mt-6 max-w-2xl text-base leading-8 text-ink-700">{content.aboutBody}</p>
@@ -125,10 +125,10 @@ export function HomePage() {
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <img 
-              src={aboutData?.about?.image || "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80"} 
-              alt={aboutData?.about?.title || "About MDO Landscape"} 
-              className="aspect-[4/3] w-full object-cover" 
+            <img
+              src={aboutData?.about?.image || "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80"}
+              alt={aboutData?.about?.title || "About MDO Landscape"}
+              className="aspect-[4/3] w-full object-cover"
             />
           </motion.div>
         </section>
@@ -136,7 +136,7 @@ export function HomePage() {
 
       <HomeServicesSection />
 
-      <section className="section-space bg-surface-muted/60" id="projects">
+      {/* <section className="section-space bg-surface-muted/60" id="projects">
         <div className="container-shell">
           <AnimatedSection animation="up">
             <div className="mb-12 max-w-3xl">
@@ -200,7 +200,7 @@ export function HomePage() {
             </div>
           )}
         </div>
-      </section>
+      </section> */}
 
       <section className="section-space bg-surface-muted">
         <div className="container-shell grid items-start gap-10 lg:grid-cols-[0.98fr_1.02fr] lg:gap-16">
@@ -225,10 +225,10 @@ export function HomePage() {
             </div>
           </AnimatedSection>
           <AnimatedSection animation="right">
-            <img 
-              src={whyChooseData?.image || "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80"} 
-              alt={whyChooseData?.title || "Why choose us"} 
-              className="aspect-[4/3] w-full object-cover" 
+            <img
+              src={whyChooseData?.image || "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80"}
+              alt={whyChooseData?.title || "Why choose us"}
+              className="aspect-[4/3] w-full object-cover"
             />
           </AnimatedSection>
         </div>
@@ -237,10 +237,10 @@ export function HomePage() {
       {/* <ContactCtaSection data={requestServiceData} /> */}
 
       <section className="relative isolate overflow-hidden bg-black text-white">
-        <img 
-          src={requestServiceData?.image || "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=80"} 
-          alt={requestServiceData?.title || "Luxury landscape footer background"} 
-          className="absolute inset-0 h-full w-full object-cover opacity-45" 
+        <img
+          src={requestServiceData?.image || "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=80"}
+          alt={requestServiceData?.title || "Luxury landscape footer background"}
+          className="absolute inset-0 h-full w-full object-cover opacity-45"
         />
         <div className="absolute inset-0 bg-black/55" />
         <div className="container-shell relative py-24 sm:py-28 lg:py-32">

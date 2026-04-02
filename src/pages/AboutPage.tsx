@@ -101,8 +101,8 @@ export function AboutPage() {
 
   const valuesFallback = t('about.values', { returnObjects: true }) as AboutValue[];
   const values = data?.what_shapes_the_work?.items?.map(item => ({
-      title: isArabic ? item.title.ar : item.title.en,
-      body: isArabic ? item.description.ar : item.description.en,
+    title: isArabic ? item.title.ar : item.title.en,
+    body: isArabic ? item.description.ar : item.description.en,
   })) || valuesFallback;
 
   const directionCards: AboutDirectionCard[] = [
@@ -135,15 +135,15 @@ export function AboutPage() {
       <AnimatedSection className="section-space pt-24 lg:pt-32" animation="left">
         <div className="container-shell grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-16">
           <div>
-            <SectionHeading 
-              eyebrow={data?.about?.badge || t('about.eyebrow')} 
-              title={data?.about?.title || t('about.title')} 
+            <SectionHeading
+              eyebrow={data?.about?.badge || t('about.eyebrow')}
+              title={data?.about?.title || t('about.title')}
               description={loading ? t('about.description') : ''} // Clearing SectionHeading desc if using API for rich body
             />
             {data?.about?.description ? (
-              <div 
-                 className="max-w-2xl text-base leading-8 text-ink-500 mt-2 space-y-4 [&>p]:mb-4"
-                 dangerouslySetInnerHTML={{ __html: data.about.description }} 
+              <div
+                className="max-w-2xl text-base leading-8 text-ink-500 mt-2 space-y-4 [&>p]:mb-4"
+                dangerouslySetInnerHTML={{ __html: data.about.description }}
               />
             ) : (
               <p className="max-w-2xl text-base leading-8 text-ink-500">{t('about.story')}</p>
@@ -160,7 +160,7 @@ export function AboutPage() {
         </div>
       </AnimatedSection>
 
-      <section className="section-space bg-surface-muted/30">
+      {/* <section className="section-space bg-surface-muted/30">
         <div className="container-shell grid gap-6 lg:grid-cols-2 lg:gap-8">
           {directionCards.map((card) => (
             <AnimatedSection key={card.key} animation={card.animation}>
@@ -168,26 +168,28 @@ export function AboutPage() {
             </AnimatedSection>
           ))}
         </div>
-      </section>
+      </section> */}
 
       <AnimatedSection className="section-space bg-surface-muted/70" animation="right">
         <div className="container-shell">
-          <SectionHeading 
-            eyebrow={data?.what_shapes_the_work?.badge || t('about.valuesEyebrow')} 
-            title={data?.what_shapes_the_work?.title || t('about.valuesTitle')} 
-            description={t('about.valuesDescription')} 
-          />
-          {data?.what_shapes_the_work?.description && (
-             <div 
-               className="mb-10 max-w-3xl text-sm leading-7 text-ink-600 sm:text-base space-y-4"
-               dangerouslySetInnerHTML={{ __html: data.what_shapes_the_work.description }}
-             />
-          )}
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="flex flex-col items-center text-center">
+            <SectionHeading
+              // eyebrow={data?.what_shapes_the_work?.badge || t('about.valuesEyebrow')}
+              title={data?.what_shapes_the_work?.title || t('about.valuesTitle')}
+              description={t('about.valuesDescription')}
+            />
+            {data?.what_shapes_the_work?.description && (
+              <div
+                className="mb-12 w-full max-w-3xl text-sm leading-7 text-ink-600 sm:text-base space-y-4"
+                dangerouslySetInnerHTML={{ __html: data.what_shapes_the_work.description }}
+              />
+            )}
+          </div>
+          <div className="flex flex-wrap items-stretch justify-center gap-6 lg:gap-10 w-full mt-4">
             {values.map((item) => (
-              <article key={item.title} className="surface-card p-6">
-                <h3 className="text-3xl font-semibold text-ink-900">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-ink-500">{item.body}</p>
+              <article key={item.title} className="surface-card flex-1 min-w-[280px] sm:min-w-[320px] max-w-[600px] p-8 sm:p-12 flex flex-col justify-center items-center text-center rounded-[2rem]">
+                <h3 className="text-3xl sm:text-4xl lg:text-[2.5rem] font-semibold text-ink-900 mb-4">{item.title}</h3>
+                <p className="mt-2 text-base sm:text-lg leading-relaxed text-ink-500 max-w-sm">{item.body}</p>
               </article>
             ))}
           </div>

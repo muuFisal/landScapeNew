@@ -36,7 +36,7 @@ export function Navbar() {
   const isHeroPage = ['/', '/services', '/gallery'].includes(location.pathname);
   const isDark = theme === 'dark' || (theme === 'system' && typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-  const logoUrl = isDark 
+  const logoUrl = isDark
     ? (settings?.media?.dark_logo || settings?.media?.logo || settings?.media?.selected_logo)
     : (settings?.media?.light_logo || settings?.media?.logo || settings?.media?.selected_logo);
 
@@ -117,10 +117,10 @@ export function Navbar() {
             aria-label="Home"
           >
             {logoUrl ? (
-              <img src={logoUrl} alt={settings?.name || 'Logo'} className="h-8 w-auto object-contain sm:h-10 transition-all duration-300" />
+              <img src={logoUrl} alt={settings?.name || 'Logo'} className="h-18 w-auto object-contain sm:h-16 transition-all duration-300" />
             ) : (
               <span className={cn('font-display text-[1.8rem] font-semibold tracking-[0.2em] sm:text-[2.2rem]', textClass)}>
-                {settings?.name || 'MDO'}
+                {settings?.name || 'CUL'}
               </span>
             )}
           </Link>
@@ -128,7 +128,7 @@ export function Navbar() {
           <nav className="hidden items-center gap-7 lg:flex">
             {navActions.map((action) => {
               if (action.type === 'external' && action.key === 'instagram' && !settings?.socials?.instagram && !action.href) return null;
-              
+
               const href = action.type === 'external' && action.key === 'instagram' && settings?.socials?.instagram ? settings.socials.instagram : (action as any).href;
 
               return action.type === 'route' ? (
@@ -198,7 +198,7 @@ export function Navbar() {
           <div className="container-shell grid gap-4 py-8">
             {navActions.map((action) => {
               if (action.type === 'external' && action.key === 'instagram' && !settings?.socials?.instagram && !action.href) return null;
-              
+
               const href = action.type === 'external' && action.key === 'instagram' && settings?.socials?.instagram ? settings.socials.instagram : (action as any).href;
 
               return action.type === 'route' ? (

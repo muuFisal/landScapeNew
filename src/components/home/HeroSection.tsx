@@ -49,7 +49,7 @@ export function HeroSection() {
         >
           <h1
             className={cn(
-              'mx-auto max-w-5xl text-center text-4xl font-semibold leading-[0.95] text-balance text-white sm:text-6xl lg:text-[6.5rem]',
+              'mx-auto w-full px-4 flex justify-center text-center text-3xl font-semibold leading-[0.95] text-white sm:text-5xl lg:text-[4.5rem] lg:whitespace-nowrap',
               !isArabic && 'uppercase'
             )}
           >

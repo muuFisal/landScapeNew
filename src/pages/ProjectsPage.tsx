@@ -26,7 +26,7 @@ export function ProjectsPage() {
 
   const { data: pageData } = useWorkPage();
   const { services } = useServices();
-  
+
   const { projects: filteredProjects, pagination, loading } = useProjectsList({
     page: currentPage,
     per_page: 12,
@@ -44,8 +44,8 @@ export function ProjectsPage() {
   ];
 
   const activeFilterLabel =
-    activeFilter === 'all' 
-      ? t('projects.filters.all') 
+    activeFilter === 'all'
+      ? t('projects.filters.all')
       : services.find((s) => s.slug === activeFilter)?.title || activeFilter;
 
   const handleFilterChange = (filter: string) => {
@@ -58,10 +58,10 @@ export function ProjectsPage() {
 
       <AnimatedSection className="section-space pt-24 lg:pt-32" animation="down">
         <div className="container-shell">
-          <SectionHeading 
-             eyebrow={pageData?.eyebrow || t('projects.eyebrow')} 
-             title={pageData?.title || t('projects.title')} 
-             description={pageData?.description || t('projects.description')} 
+          <SectionHeading
+            // eyebrow={pageData?.eyebrow || t('projects.eyebrow')}
+            title={pageData?.title || t('projects.title')}
+            description={pageData?.description || t('projects.description')}
           />
 
           <div className="mb-8 flex flex-wrap gap-3" aria-label={t('projects.filtersLabel')}>
@@ -84,11 +84,11 @@ export function ProjectsPage() {
           </div>
 
           <div className="mb-10 flex flex-wrap items-center justify-between gap-4 rounded-[1.5rem] border border-black/5 bg-surface-muted/65 px-5 py-4 dark:border-white/10">
-            <p className="text-sm leading-7 text-ink-600" role="status">
+            {/* <p className="text-sm leading-7 text-ink-600" role="status">
               {activeFilter === 'all'
                 ? t('projects.allSummary', { count: filteredProjects.length })
                 : t('projects.activeSummary', { count: filteredProjects.length, service: activeFilterLabel })}
-            </p>
+            </p> */}
 
             {activeFilter !== 'all' && (
               <button
@@ -102,9 +102,9 @@ export function ProjectsPage() {
           </div>
 
           {loading ? (
-             <div className="flex h-64 w-full items-center justify-center">
-               <Loader2 className="h-8 w-8 animate-spin text-ink-300" />
-             </div>
+            <div className="flex h-64 w-full items-center justify-center">
+              <Loader2 className="h-8 w-8 animate-spin text-ink-300" />
+            </div>
           ) : filteredProjects.length > 0 ? (
             <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
               {filteredProjects.map((project) => (
@@ -120,33 +120,33 @@ export function ProjectsPage() {
 
           {pagination && pagination.last_page > 1 && (
             <div className="mt-16 flex items-center justify-center gap-2">
-              <button 
-                 onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-                 disabled={currentPage === 1 || loading}
-                 className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-ink-600 transition hover:bg-black/5 disabled:opacity-50"
-                 aria-label="Previous page"
+              <button
+                onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+                disabled={currentPage === 1 || loading}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-ink-600 transition hover:bg-black/5 disabled:opacity-50"
+                aria-label="Previous page"
               >
-                 <ChevronLeft className="h-4 w-4 rtl:rotate-180" />
+                <ChevronLeft className="h-4 w-4 rtl:rotate-180" />
               </button>
-              
+
               <div className="flex items-center gap-1 mx-2">
-                 {[...Array(pagination.last_page)].map((_, i) => (
-                    <button 
-                       key={i} 
-                       onClick={() => setCurrentPage(i + 1)}
-                       aria-label={`Page ${i + 1}`}
-                       className={`h-2.5 rounded-full transition-all ${currentPage === i + 1 ? 'w-8 bg-ink-900' : 'w-2.5 bg-ink-300 hover:bg-ink-500'}`}
-                    />
-                 ))}
+                {[...Array(pagination.last_page)].map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCurrentPage(i + 1)}
+                    aria-label={`Page ${i + 1}`}
+                    className={`h-2.5 rounded-full transition-all ${currentPage === i + 1 ? 'w-8 bg-ink-900' : 'w-2.5 bg-ink-300 hover:bg-ink-500'}`}
+                  />
+                ))}
               </div>
 
-              <button 
-                 onClick={() => setCurrentPage(p => Math.min(pagination.last_page, p + 1))}
-                 disabled={currentPage === pagination.last_page || loading}
-                 className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-ink-600 transition hover:bg-black/5 disabled:opacity-50"
-                 aria-label="Next page"
+              <button
+                onClick={() => setCurrentPage(p => Math.min(pagination.last_page, p + 1))}
+                disabled={currentPage === pagination.last_page || loading}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-ink-600 transition hover:bg-black/5 disabled:opacity-50"
+                aria-label="Next page"
               >
-                 <ChevronRight className="h-4 w-4 rtl:rotate-180" />
+                <ChevronRight className="h-4 w-4 rtl:rotate-180" />
               </button>
             </div>
           )}
