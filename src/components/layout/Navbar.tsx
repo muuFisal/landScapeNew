@@ -117,7 +117,7 @@ export function Navbar() {
             aria-label="Home"
           >
             {logoUrl ? (
-              <img src={logoUrl} alt={settings?.name || 'Logo'} className="h-18 w-auto object-contain sm:h-16 transition-all duration-300" />
+              <img src={logoUrl} alt={settings?.name || 'Logo'} className="h-24 w-auto object-contain sm:h-20 transition-all duration-300" />
             ) : (
               <span className={cn('font-display text-[1.8rem] font-semibold tracking-[0.2em] sm:text-[2.2rem]', textClass)}>
                 {settings?.name || 'CUL'}

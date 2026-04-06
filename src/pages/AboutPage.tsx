@@ -150,12 +150,21 @@ export function AboutPage() {
             )}
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-surface-strong shadow-card dark:border-white/10">
-            <img
-              src={data?.about?.image || "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80"}
-              alt={data?.about?.title || t('about.media.introAlt')}
-              className="aspect-[5/6] w-full object-cover object-[center_58%] sm:aspect-[4/3] lg:aspect-[5/6]"
-            />
+          <div className="grid grid-cols-2 gap-4 sm:gap-6">
+            <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-surface-strong shadow-card dark:border-white/10">
+              <img
+                src={data?.about?.image || "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80"}
+                alt={data?.about?.title || t('about.media.introAlt')}
+                className="aspect-[4/6] sm:aspect-[3/4] lg:aspect-[4/8] w-full object-cover object-[center_58%]"
+              />
+            </div>
+            <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-surface-strong shadow-card dark:border-white/10">
+              <img
+                src={data?.about?.second_image || "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80"}
+                alt={data?.about?.title || t('about.media.introAlt')}
+                className="aspect-[4/6] sm:aspect-[3/4] lg:aspect-[4/8] w-full object-cover object-center"
+              />
+            </div>
           </div>
         </div>
       </AnimatedSection>

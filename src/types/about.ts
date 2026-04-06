@@ -8,6 +8,7 @@ export interface AboutSection {
   title: string;
   description: string;
   image: string;
+  second_image?: string;
 }
 
 export interface WhatShapesTheWorkItem {

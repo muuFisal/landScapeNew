@@ -26,7 +26,7 @@ export function ContactPage() {
     name: '',
     phone: '',
     email: '',
-    subject: 'Website Inquiry',
+    subject: '',
     message: ''
   });
 
@@ -34,7 +34,7 @@ export function ContactPage() {
     e.preventDefault();
     const isSuccess = await submit(formData);
     if (isSuccess) {
-      setFormData({ name: '', phone: '', email: '', subject: 'Website Inquiry', message: '' });
+      setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
     }
   };
 
