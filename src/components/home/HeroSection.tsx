@@ -39,7 +39,7 @@ export function HeroSection() {
       <div className="hero-overlay absolute inset-0 bg-black/45" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_38%)]" />
 
-      <div className="container-shell relative flex min-h-screen items-end justify-center pb-24 text-center sm:pb-28 lg:pb-32">
+      <div className="container-shell relative flex min-h-screen items-center justify-center pt-16 text-center">
         <motion.div
           key={currentBanner?.id || 'static'}
           initial={{ opacity: 0, y: 32 }}
@@ -59,7 +59,7 @@ export function HeroSection() {
           <div className="mt-8 flex justify-center sm:mt-10">
             <div
               aria-label={t('home.hero.serviceHierarchy.ariaLabel')}
-              className="inline-flex w-full max-w-[34rem] flex-col items-center rounded-[2rem] border border-white/12 bg-black/20 px-5 py-5 shadow-card backdrop-blur-md sm:px-8 sm:py-6"
+              className="inline-flex w-full max-w-[34rem] flex-col items-center rounded-[2rem] border border-white/12 bg-transparent px-5 py-5 shadow-card sm:px-8 sm:py-6"
             >
               <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
                 <span
@@ -70,7 +70,7 @@ export function HeroSection() {
                 >
                   {currentBanner?.primary_label || t('home.hero.serviceHierarchy.primary.design')}
                 </span>
-                <span className="h-px w-8 bg-white/30 sm:w-12" />
+                <span className="text-white/30 text-[1.25rem] sm:text-[1.6rem] font-light">|</span>
                 <span
                   className={cn(
                     'font-display text-[1.25rem] font-semibold text-white sm:text-[1.6rem]',
